@@ -23,7 +23,7 @@ namespace Xcolor.Models
     
         public int ID { get; set; }
         public int idPerfil { get; set; }
-        public string usuario1 { get; set; }
+        public string usuario { get; set; }
         public string contraseña { get; set; }
         public string nombre { get; set; }
         public string apellido { get; set; }

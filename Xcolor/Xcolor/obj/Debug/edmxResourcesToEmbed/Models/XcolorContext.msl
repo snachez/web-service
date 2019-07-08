@@ -6,7 +6,7 @@
         <MappingFragment StoreEntitySet="Canton">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
-          <ScalarProperty Name="canton1" ColumnName="canton" />
+          <ScalarProperty Name="canton" ColumnName="canton" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -41,7 +41,7 @@
         <MappingFragment StoreEntitySet="Distrito">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="idCanton" ColumnName="idCanton" />
-          <ScalarProperty Name="Distrito1" ColumnName="Distrito" />
+          <ScalarProperty Name="distrito" ColumnName="Distrito" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -49,7 +49,7 @@
       <EntityTypeMapping TypeName="xcolorModel.Marca">
         <MappingFragment StoreEntitySet="Marca">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="marca1" ColumnName="marca" />
+          <ScalarProperty Name="marca" ColumnName="marca" />
           <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -97,7 +97,7 @@
       <EntityTypeMapping TypeName="xcolorModel.Producto">
         <MappingFragment StoreEntitySet="Producto">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="producto1" ColumnName="producto" />
+          <ScalarProperty Name="producto" ColumnName="producto" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="idMarca" ColumnName="idMarca" />
           <ScalarProperty Name="estado" ColumnName="estado" />
@@ -119,7 +119,7 @@
       <EntityTypeMapping TypeName="xcolorModel.Provincia">
         <MappingFragment StoreEntitySet="Provincia">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="provincia1" ColumnName="provincia" />
+          <ScalarProperty Name="provincia" ColumnName="provincia" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -137,7 +137,7 @@
       <EntityTypeMapping TypeName="xcolorModel.TipoDireccion">
         <MappingFragment StoreEntitySet="TipoDireccion">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="tipoDireccion1" ColumnName="tipoDireccion" />
+          <ScalarProperty Name="tipoDireccion" ColumnName="tipoDireccion" />
           <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -146,7 +146,7 @@
       <EntityTypeMapping TypeName="xcolorModel.TipoTelefono">
         <MappingFragment StoreEntitySet="TipoTelefono">
           <ScalarProperty Name="ID" ColumnName="ID" />
-          <ScalarProperty Name="tipoTelefono1" ColumnName="tipoTelefono" />
+          <ScalarProperty Name="tipoTelefono" ColumnName="tipoTelefono" />
           <ScalarProperty Name="estado" ColumnName="estado" />
         </MappingFragment>
       </EntityTypeMapping>
@@ -156,7 +156,7 @@
         <MappingFragment StoreEntitySet="Usuario">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
-          <ScalarProperty Name="usuario1" ColumnName="usuario" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
           <ScalarProperty Name="contraseña" ColumnName="contraseña" />
           <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="apellido" ColumnName="apellido" />
@@ -178,5 +178,74 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CantonDelete" FunctionName="xcolorModel.Store.CantonDelete" />
+    <FunctionImportMapping FunctionImportName="CantonInsert" FunctionName="xcolorModel.Store.CantonInsert" />
+    <FunctionImportMapping FunctionImportName="CantonSelect" FunctionName="xcolorModel.Store.CantonSelect" />
+    <FunctionImportMapping FunctionImportName="CantonUpdate" FunctionName="xcolorModel.Store.CantonUpdate" />
+    <FunctionImportMapping FunctionImportName="ClienteDelete" FunctionName="xcolorModel.Store.ClienteDelete" />
+    <FunctionImportMapping FunctionImportName="ClienteInsert" FunctionName="xcolorModel.Store.ClienteInsert" />
+    <FunctionImportMapping FunctionImportName="ClienteSelect" FunctionName="xcolorModel.Store.ClienteSelect" />
+    <FunctionImportMapping FunctionImportName="ClienteUpdate" FunctionName="xcolorModel.Store.ClienteUpdate" />
+    <FunctionImportMapping FunctionImportName="DireccionClienteDelete" FunctionName="xcolorModel.Store.DireccionClienteDelete" />
+    <FunctionImportMapping FunctionImportName="DireccionClienteInsert" FunctionName="xcolorModel.Store.DireccionClienteInsert" />
+    <FunctionImportMapping FunctionImportName="DireccionClienteSelect" FunctionName="xcolorModel.Store.DireccionClienteSelect" />
+    <FunctionImportMapping FunctionImportName="DireccionClienteUpdate" FunctionName="xcolorModel.Store.DireccionClienteUpdate" />
+    <FunctionImportMapping FunctionImportName="DistritoDelete" FunctionName="xcolorModel.Store.DistritoDelete" />
+    <FunctionImportMapping FunctionImportName="DistritoInsert" FunctionName="xcolorModel.Store.DistritoInsert" />
+    <FunctionImportMapping FunctionImportName="DistritoSelect" FunctionName="xcolorModel.Store.DistritoSelect" />
+    <FunctionImportMapping FunctionImportName="DistritoUpdate" FunctionName="xcolorModel.Store.DistritoUpdate" />
+    <FunctionImportMapping FunctionImportName="MarcaDelete" FunctionName="xcolorModel.Store.MarcaDelete" />
+    <FunctionImportMapping FunctionImportName="MarcaInsert" FunctionName="xcolorModel.Store.MarcaInsert" />
+    <FunctionImportMapping FunctionImportName="MarcaSelect" FunctionName="xcolorModel.Store.MarcaSelect" />
+    <FunctionImportMapping FunctionImportName="MarcaUpdate" FunctionName="xcolorModel.Store.MarcaUpdate" />
+    <FunctionImportMapping FunctionImportName="PedidoDelete" FunctionName="xcolorModel.Store.PedidoDelete" />
+    <FunctionImportMapping FunctionImportName="PedidoInsert" FunctionName="xcolorModel.Store.PedidoInsert" />
+    <FunctionImportMapping FunctionImportName="PedidoSelect" FunctionName="xcolorModel.Store.PedidoSelect" />
+    <FunctionImportMapping FunctionImportName="PedidoUpdate" FunctionName="xcolorModel.Store.PedidoUpdate" />
+    <FunctionImportMapping FunctionImportName="PerfilDelete" FunctionName="xcolorModel.Store.PerfilDelete" />
+    <FunctionImportMapping FunctionImportName="PerfilInsert" FunctionName="xcolorModel.Store.PerfilInsert" />
+    <FunctionImportMapping FunctionImportName="PerfilSelect" FunctionName="xcolorModel.Store.PerfilSelect" />
+    <FunctionImportMapping FunctionImportName="PerfilUpdate" FunctionName="xcolorModel.Store.PerfilUpdate" />
+    <FunctionImportMapping FunctionImportName="PermisosDelete" FunctionName="xcolorModel.Store.PermisosDelete" />
+    <FunctionImportMapping FunctionImportName="PermisosInsert" FunctionName="xcolorModel.Store.PermisosInsert" />
+    <FunctionImportMapping FunctionImportName="PermisosSelect" FunctionName="xcolorModel.Store.PermisosSelect" />
+    <FunctionImportMapping FunctionImportName="PermisosUpdate" FunctionName="xcolorModel.Store.PermisosUpdate" />
+    <FunctionImportMapping FunctionImportName="PermisosxPerfilDelete" FunctionName="xcolorModel.Store.PermisosxPerfilDelete" />
+    <FunctionImportMapping FunctionImportName="PermisosxPerfilInsert" FunctionName="xcolorModel.Store.PermisosxPerfilInsert" />
+    <FunctionImportMapping FunctionImportName="PermisosxPerfilSelect" FunctionName="xcolorModel.Store.PermisosxPerfilSelect" />
+    <FunctionImportMapping FunctionImportName="PermisosxPerfilUpdate" FunctionName="xcolorModel.Store.PermisosxPerfilUpdate" />
+    <FunctionImportMapping FunctionImportName="ProductoDelete" FunctionName="xcolorModel.Store.ProductoDelete" />
+    <FunctionImportMapping FunctionImportName="ProductoInsert" FunctionName="xcolorModel.Store.ProductoInsert" />
+    <FunctionImportMapping FunctionImportName="ProductoSelect" FunctionName="xcolorModel.Store.ProductoSelect" />
+    <FunctionImportMapping FunctionImportName="ProductosxPedidoDelete" FunctionName="xcolorModel.Store.ProductosxPedidoDelete" />
+    <FunctionImportMapping FunctionImportName="ProductosxPedidoInsert" FunctionName="xcolorModel.Store.ProductosxPedidoInsert" />
+    <FunctionImportMapping FunctionImportName="ProductosxPedidoSelect" FunctionName="xcolorModel.Store.ProductosxPedidoSelect" />
+    <FunctionImportMapping FunctionImportName="ProductosxPedidoUpdate" FunctionName="xcolorModel.Store.ProductosxPedidoUpdate" />
+    <FunctionImportMapping FunctionImportName="ProductoUpdate" FunctionName="xcolorModel.Store.ProductoUpdate" />
+    <FunctionImportMapping FunctionImportName="ProvinciaDelete" FunctionName="xcolorModel.Store.ProvinciaDelete" />
+    <FunctionImportMapping FunctionImportName="ProvinciaInsert" FunctionName="xcolorModel.Store.ProvinciaInsert" />
+    <FunctionImportMapping FunctionImportName="ProvinciaSelect" FunctionName="xcolorModel.Store.ProvinciaSelect" />
+    <FunctionImportMapping FunctionImportName="ProvinciaSelectAll" FunctionName="xcolorModel.Store.ProvinciaSelectAll" />
+    <FunctionImportMapping FunctionImportName="ProvinciaUpdate" FunctionName="xcolorModel.Store.ProvinciaUpdate" />
+    <FunctionImportMapping FunctionImportName="TelefonoClienteDelete" FunctionName="xcolorModel.Store.TelefonoClienteDelete" />
+    <FunctionImportMapping FunctionImportName="TelefonoClienteInsert" FunctionName="xcolorModel.Store.TelefonoClienteInsert" />
+    <FunctionImportMapping FunctionImportName="TelefonoClienteSelect" FunctionName="xcolorModel.Store.TelefonoClienteSelect" />
+    <FunctionImportMapping FunctionImportName="TelefonoClienteUpdate" FunctionName="xcolorModel.Store.TelefonoClienteUpdate" />
+    <FunctionImportMapping FunctionImportName="TipoDireccionDelete" FunctionName="xcolorModel.Store.TipoDireccionDelete" />
+    <FunctionImportMapping FunctionImportName="TipoDireccionInsert" FunctionName="xcolorModel.Store.TipoDireccionInsert" />
+    <FunctionImportMapping FunctionImportName="TipoDireccionSelect" FunctionName="xcolorModel.Store.TipoDireccionSelect" />
+    <FunctionImportMapping FunctionImportName="TipoDireccionUpdate" FunctionName="xcolorModel.Store.TipoDireccionUpdate" />
+    <FunctionImportMapping FunctionImportName="TipoTelefonoDelete" FunctionName="xcolorModel.Store.TipoTelefonoDelete" />
+    <FunctionImportMapping FunctionImportName="TipoTelefonoInsert" FunctionName="xcolorModel.Store.TipoTelefonoInsert" />
+    <FunctionImportMapping FunctionImportName="TipoTelefonoSelect" FunctionName="xcolorModel.Store.TipoTelefonoSelect" />
+    <FunctionImportMapping FunctionImportName="TipoTelefonoUpdate" FunctionName="xcolorModel.Store.TipoTelefonoUpdate" />
+    <FunctionImportMapping FunctionImportName="UsuarioDelete" FunctionName="xcolorModel.Store.UsuarioDelete" />
+    <FunctionImportMapping FunctionImportName="UsuarioInsert" FunctionName="xcolorModel.Store.UsuarioInsert" />
+    <FunctionImportMapping FunctionImportName="UsuarioSelect" FunctionName="xcolorModel.Store.UsuarioSelect" />
+    <FunctionImportMapping FunctionImportName="UsuarioUpdate" FunctionName="xcolorModel.Store.UsuarioUpdate" />
+    <FunctionImportMapping FunctionImportName="VisitaDelete" FunctionName="xcolorModel.Store.VisitaDelete" />
+    <FunctionImportMapping FunctionImportName="VisitaInsert" FunctionName="xcolorModel.Store.VisitaInsert" />
+    <FunctionImportMapping FunctionImportName="VisitaSelect" FunctionName="xcolorModel.Store.VisitaSelect" />
+    <FunctionImportMapping FunctionImportName="VisitaUpdate" FunctionName="xcolorModel.Store.VisitaUpdate" />
   </EntityContainerMapping>
 </Mapping>

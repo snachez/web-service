@@ -21,7 +21,7 @@ namespace Xcolor.Models
         }
     
         public int ID { get; set; }
-        public string tipoDireccion1 { get; set; }
+        public string tipoDireccion { get; set; }
         public string estado { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

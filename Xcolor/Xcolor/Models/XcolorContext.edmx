@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="xcolorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="xcolorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Canton">
           <Key>
             <PropertyRef Name="ID" />
@@ -393,6 +393,310 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="CantonDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="CantonInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idProvincia" Type="int" Mode="In" />
+          <Parameter Name="canton" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="CantonSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="CantonUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="idProvincia" Type="int" Mode="In" />
+          <Parameter Name="canton" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ClienteDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ClienteInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idRole" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellido" Type="varchar" Mode="In" />
+          <Parameter Name="cedula" Type="varchar" Mode="In" />
+          <Parameter Name="correo" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="ClienteSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ClienteUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="idRole" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellido" Type="varchar" Mode="In" />
+          <Parameter Name="cedula" Type="varchar" Mode="In" />
+          <Parameter Name="correo" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="DireccionClienteDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DireccionClienteInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="direccion" Type="varchar" Mode="In" />
+          <Parameter Name="idProvincia" Type="int" Mode="In" />
+          <Parameter Name="idCanton" Type="int" Mode="In" />
+          <Parameter Name="idDistrito" Type="int" Mode="In" />
+          <Parameter Name="idTipoDireccion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DireccionClienteSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DireccionClienteUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="direccion" Type="varchar" Mode="In" />
+          <Parameter Name="idProvincia" Type="int" Mode="In" />
+          <Parameter Name="idCanton" Type="int" Mode="In" />
+          <Parameter Name="idDistrito" Type="int" Mode="In" />
+          <Parameter Name="idTipoDireccion" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DistritoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DistritoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCanton" Type="int" Mode="In" />
+          <Parameter Name="Distrito" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DistritoSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DistritoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="idCanton" Type="int" Mode="In" />
+          <Parameter Name="Distrito" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="MarcaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="MarcaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="marca" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="MarcaSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="MarcaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="marca" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="PedidoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PedidoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="idEstado" Type="int" Mode="In" />
+          <Parameter Name="idPedido" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="PedidoSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PedidoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="idEstado" Type="int" Mode="In" />
+          <Parameter Name="idPedido" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="PerfilDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PerfilInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="PerfilSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PerfilUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="PermisosDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PermisosInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="permiso" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="PermisosSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PermisosUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="permiso" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="PermisosxPerfilDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PermisosxPerfilInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPermiso" Type="int" Mode="In" />
+          <Parameter Name="idPerfil" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PermisosxPerfilSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="PermisosxPerfilUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="idPermiso" Type="int" Mode="In" />
+          <Parameter Name="idPerfil" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ProductoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ProductoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="producto" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="idMarca" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="ProductoSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ProductosxPedidoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ProductosxPedidoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPedido" Type="int" Mode="In" />
+          <Parameter Name="idProducto" Type="int" Mode="In" />
+          <Parameter Name="cantidad" Type="float" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="ProductosxPedidoSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ProductosxPedidoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="idPedido" Type="int" Mode="In" />
+          <Parameter Name="idProducto" Type="int" Mode="In" />
+          <Parameter Name="cantidad" Type="float" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="ProductoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="producto" Type="varchar" Mode="In" />
+          <Parameter Name="descripcion" Type="varchar" Mode="In" />
+          <Parameter Name="idMarca" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="ProvinciaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ProvinciaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="provincia" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="ProvinciaSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="ProvinciaSelectAll" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="ProvinciaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="provincia" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="TelefonoClienteDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TelefonoClienteInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="idTipoTelefono" Type="int" Mode="In" />
+          <Parameter Name="telefono" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="TelefonoClienteSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TelefonoClienteUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="idTipoTelefono" Type="int" Mode="In" />
+          <Parameter Name="telefono" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="TipoDireccionDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TipoDireccionInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tipoDireccion" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="TipoDireccionSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TipoDireccionUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="tipoDireccion" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="TipoTelefonoDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TipoTelefonoInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="tipoTelefono" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="TipoTelefonoSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="TipoTelefonoUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="tipoTelefono" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="UsuarioDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UsuarioInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idPerfil" Type="int" Mode="In" />
+          <Parameter Name="usuario" Type="varchar" Mode="In" />
+          <Parameter Name="contraseña" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellido" Type="varchar" Mode="In" />
+          <Parameter Name="correoElectronico" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="UsuarioSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="UsuarioUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="idPerfil" Type="int" Mode="In" />
+          <Parameter Name="usuario" Type="varchar" Mode="In" />
+          <Parameter Name="contraseña" Type="varchar" Mode="In" />
+          <Parameter Name="nombre" Type="varchar" Mode="In" />
+          <Parameter Name="apellido" Type="varchar" Mode="In" />
+          <Parameter Name="correoElectronico" Type="varchar" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="VisitaDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="VisitaInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+          <Parameter Name="fechaHoraInicio" Type="datetime" Mode="In" />
+          <Parameter Name="fechaHoraFinal" Type="datetime" Mode="In" />
+          <Parameter Name="ubicacionGPS" Type="varchar" Mode="In" />
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
+        <Function Name="VisitaSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+        </Function>
+        <Function Name="VisitaUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="idUsuario" Type="int" Mode="In" />
+          <Parameter Name="fechaHoraInicio" Type="datetime" Mode="In" />
+          <Parameter Name="fechaHoraFinal" Type="datetime" Mode="In" />
+          <Parameter Name="ubicacionGPS" Type="varchar" Mode="In" />
+          <Parameter Name="idCliente" Type="int" Mode="In" />
+          <Parameter Name="estado" Type="char" Mode="In" />
+        </Function>
         <EntityContainer Name="xcolorModelStoreContainer">
           <EntitySet Name="Canton" EntityType="Self.Canton" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
@@ -488,8 +792,7 @@
             <End Role="Visita" EntitySet="Visita" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="xcolorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -499,7 +802,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idProvincia" Type="Int32" Nullable="false" />
-          <Property Name="canton1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Provincia" Relationship="Self.FK_Canton_Provincia" FromRole="Canton" ToRole="Provincia" />
           <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_Canton" FromRole="Canton" ToRole="DireccionCliente" />
           <NavigationProperty Name="Distrito" Relationship="Self.FK_Distrito_Canton" FromRole="Canton" ToRole="Distrito" />
@@ -543,7 +846,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idCanton" Type="Int32" Nullable="false" />
-          <Property Name="Distrito1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Canton" Relationship="Self.FK_Distrito_Canton" FromRole="Distrito" ToRole="Canton" />
           <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_Distrito" FromRole="Distrito" ToRole="DireccionCliente" />
         </EntityType>
@@ -552,7 +855,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="marca1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Producto" Relationship="Self.FK_Producto_Marca" FromRole="Marca" ToRole="Producto" />
         </EntityType>
@@ -604,7 +907,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="producto1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="producto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="idMarca" Type="Int32" Nullable="false" />
           <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
@@ -628,7 +931,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="provincia1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Canton" Relationship="Self.FK_Canton_Provincia" FromRole="Provincia" ToRole="Canton" />
           <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_Provincia" FromRole="Provincia" ToRole="DireccionCliente" />
         </EntityType>
@@ -648,7 +951,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="tipoDireccion1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoDireccion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_TipoDireccion" FromRole="TipoDireccion" ToRole="DireccionCliente" />
         </EntityType>
@@ -657,7 +960,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="tipoTelefono1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipoTelefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
           <NavigationProperty Name="TelefonoCliente" Relationship="Self.FK_TelefonoCliente_TipoTelefono" FromRole="TipoTelefono" ToRole="TelefonoCliente" />
         </EntityType>
@@ -667,7 +970,7 @@
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="idPerfil" Type="Int32" Nullable="false" />
-          <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
@@ -1013,7 +1316,424 @@
             <End Role="Usuario" EntitySet="Usuario" />
             <End Role="Visita" EntitySet="Visita" />
           </AssociationSet>
+          <FunctionImport Name="CantonDelete" EntitySet="Canton" ReturnType="Collection(xcolorModel.Canton)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CantonInsert" EntitySet="Canton" ReturnType="Collection(xcolorModel.Canton)">
+            <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+            <Parameter Name="canton" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="CantonSelect" EntitySet="Canton" ReturnType="Collection(xcolorModel.Canton)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="CantonUpdate" EntitySet="Canton" ReturnType="Collection(xcolorModel.Canton)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+            <Parameter Name="canton" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ClienteDelete" EntitySet="Cliente" ReturnType="Collection(xcolorModel.Cliente)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ClienteInsert" EntitySet="Cliente" ReturnType="Collection(xcolorModel.Cliente)">
+            <Parameter Name="idRole" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellido" Mode="In" Type="String" />
+            <Parameter Name="cedula" Mode="In" Type="String" />
+            <Parameter Name="correo" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ClienteSelect" EntitySet="Cliente" ReturnType="Collection(xcolorModel.Cliente)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ClienteUpdate" EntitySet="Cliente" ReturnType="Collection(xcolorModel.Cliente)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="idRole" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellido" Mode="In" Type="String" />
+            <Parameter Name="cedula" Mode="In" Type="String" />
+            <Parameter Name="correo" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DireccionClienteDelete" EntitySet="DireccionCliente" ReturnType="Collection(xcolorModel.DireccionCliente)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DireccionClienteInsert" EntitySet="DireccionCliente" ReturnType="Collection(xcolorModel.DireccionCliente)">
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="direccion" Mode="In" Type="String" />
+            <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+            <Parameter Name="idCanton" Mode="In" Type="Int32" />
+            <Parameter Name="idDistrito" Mode="In" Type="Int32" />
+            <Parameter Name="idTipoDireccion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DireccionClienteSelect" EntitySet="DireccionCliente" ReturnType="Collection(xcolorModel.DireccionCliente)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DireccionClienteUpdate" EntitySet="DireccionCliente" ReturnType="Collection(xcolorModel.DireccionCliente)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="direccion" Mode="In" Type="String" />
+            <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+            <Parameter Name="idCanton" Mode="In" Type="Int32" />
+            <Parameter Name="idDistrito" Mode="In" Type="Int32" />
+            <Parameter Name="idTipoDireccion" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DistritoDelete" EntitySet="Distrito" ReturnType="Collection(xcolorModel.Distrito)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DistritoInsert" EntitySet="Distrito" ReturnType="Collection(xcolorModel.Distrito)">
+            <Parameter Name="idCanton" Mode="In" Type="Int32" />
+            <Parameter Name="Distrito" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DistritoSelect" EntitySet="Distrito" ReturnType="Collection(xcolorModel.Distrito)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DistritoUpdate" EntitySet="Distrito" ReturnType="Collection(xcolorModel.Distrito)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="idCanton" Mode="In" Type="Int32" />
+            <Parameter Name="Distrito" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="MarcaDelete" EntitySet="Marca" ReturnType="Collection(xcolorModel.Marca)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="MarcaInsert" EntitySet="Marca" ReturnType="Collection(xcolorModel.Marca)">
+            <Parameter Name="marca" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="MarcaSelect" EntitySet="Marca" ReturnType="Collection(xcolorModel.Marca)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="MarcaUpdate" EntitySet="Marca" ReturnType="Collection(xcolorModel.Marca)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="marca" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PedidoDelete" EntitySet="Pedido" ReturnType="Collection(xcolorModel.Pedido)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PedidoInsert" EntitySet="Pedido" ReturnType="Collection(xcolorModel.Pedido)">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="idEstado" Mode="In" Type="Int32" />
+            <Parameter Name="idPedido" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PedidoSelect" EntitySet="Pedido" ReturnType="Collection(xcolorModel.Pedido)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PedidoUpdate" EntitySet="Pedido" ReturnType="Collection(xcolorModel.Pedido)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="idEstado" Mode="In" Type="Int32" />
+            <Parameter Name="idPedido" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PerfilDelete" EntitySet="Perfil" ReturnType="Collection(xcolorModel.Perfil)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PerfilInsert" EntitySet="Perfil" ReturnType="Collection(xcolorModel.Perfil)">
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PerfilSelect" EntitySet="Perfil" ReturnType="Collection(xcolorModel.Perfil)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PerfilUpdate" EntitySet="Perfil" ReturnType="Collection(xcolorModel.Perfil)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PermisosDelete" EntitySet="Permisos" ReturnType="Collection(xcolorModel.Permisos)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PermisosInsert" EntitySet="Permisos" ReturnType="Collection(xcolorModel.Permisos)">
+            <Parameter Name="permiso" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PermisosSelect" EntitySet="Permisos" ReturnType="Collection(xcolorModel.Permisos)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PermisosUpdate" EntitySet="Permisos" ReturnType="Collection(xcolorModel.Permisos)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="permiso" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="PermisosxPerfilDelete" EntitySet="PermisosxPerfil" ReturnType="Collection(xcolorModel.PermisosxPerfil)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PermisosxPerfilInsert" EntitySet="PermisosxPerfil" ReturnType="Collection(xcolorModel.PermisosxPerfil)">
+            <Parameter Name="idPermiso" Mode="In" Type="Int32" />
+            <Parameter Name="idPerfil" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PermisosxPerfilSelect" EntitySet="PermisosxPerfil" ReturnType="Collection(xcolorModel.PermisosxPerfil)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="PermisosxPerfilUpdate" EntitySet="PermisosxPerfil" ReturnType="Collection(xcolorModel.PermisosxPerfil)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="idPermiso" Mode="In" Type="Int32" />
+            <Parameter Name="idPerfil" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ProductoDelete" EntitySet="Producto" ReturnType="Collection(xcolorModel.Producto)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ProductoInsert" EntitySet="Producto" ReturnType="Collection(xcolorModel.Producto)">
+            <Parameter Name="producto" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="idMarca" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ProductoSelect" EntitySet="Producto" ReturnType="Collection(xcolorModel.Producto)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ProductosxPedidoDelete" EntitySet="ProductosxPedido" ReturnType="Collection(xcolorModel.ProductosxPedido)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ProductosxPedidoInsert" EntitySet="ProductosxPedido" ReturnType="Collection(xcolorModel.ProductosxPedido)">
+            <Parameter Name="idPedido" Mode="In" Type="Int32" />
+            <Parameter Name="idProducto" Mode="In" Type="Int32" />
+            <Parameter Name="cantidad" Mode="In" Type="Double" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ProductosxPedidoSelect" EntitySet="ProductosxPedido" ReturnType="Collection(xcolorModel.ProductosxPedido)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ProductosxPedidoUpdate" EntitySet="ProductosxPedido" ReturnType="Collection(xcolorModel.ProductosxPedido)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="idPedido" Mode="In" Type="Int32" />
+            <Parameter Name="idProducto" Mode="In" Type="Int32" />
+            <Parameter Name="cantidad" Mode="In" Type="Double" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ProductoUpdate" EntitySet="Producto" ReturnType="Collection(xcolorModel.Producto)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="producto" Mode="In" Type="String" />
+            <Parameter Name="descripcion" Mode="In" Type="String" />
+            <Parameter Name="idMarca" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ProvinciaDelete" EntitySet="Provincia" ReturnType="Collection(xcolorModel.Provincia)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ProvinciaInsert" EntitySet="Provincia" ReturnType="Collection(xcolorModel.Provincia)">
+          <Parameter Name="provincia" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="ProvinciaSelect" EntitySet="Provincia" ReturnType="Collection(xcolorModel.Provincia)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="ProvinciaSelectAll" EntitySet="Provincia" ReturnType="Collection(xcolorModel.Provincia)" />
+          <FunctionImport Name="ProvinciaUpdate" EntitySet="Provincia" ReturnType="Collection(xcolorModel.Provincia)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="provincia" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TelefonoClienteDelete" EntitySet="TelefonoCliente" ReturnType="Collection(xcolorModel.TelefonoCliente)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TelefonoClienteInsert" EntitySet="TelefonoCliente" ReturnType="Collection(xcolorModel.TelefonoCliente)">
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="idTipoTelefono" Mode="In" Type="Int32" />
+            <Parameter Name="telefono" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TelefonoClienteSelect" EntitySet="TelefonoCliente" ReturnType="Collection(xcolorModel.TelefonoCliente)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TelefonoClienteUpdate" EntitySet="TelefonoCliente" ReturnType="Collection(xcolorModel.TelefonoCliente)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="idTipoTelefono" Mode="In" Type="Int32" />
+            <Parameter Name="telefono" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TipoDireccionDelete" EntitySet="TipoDireccion" ReturnType="Collection(xcolorModel.TipoDireccion)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TipoDireccionInsert" EntitySet="TipoDireccion" ReturnType="Collection(xcolorModel.TipoDireccion)">
+            <Parameter Name="tipoDireccion" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TipoDireccionSelect" EntitySet="TipoDireccion" ReturnType="Collection(xcolorModel.TipoDireccion)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TipoDireccionUpdate" EntitySet="TipoDireccion" ReturnType="Collection(xcolorModel.TipoDireccion)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="tipoDireccion" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TipoTelefonoDelete" EntitySet="TipoTelefono" ReturnType="Collection(xcolorModel.TipoTelefono)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TipoTelefonoInsert" EntitySet="TipoTelefono" ReturnType="Collection(xcolorModel.TipoTelefono)">
+            <Parameter Name="tipoTelefono" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="TipoTelefonoSelect" EntitySet="TipoTelefono" ReturnType="Collection(xcolorModel.TipoTelefono)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="TipoTelefonoUpdate" EntitySet="TipoTelefono" ReturnType="Collection(xcolorModel.TipoTelefono)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="tipoTelefono" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UsuarioDelete" EntitySet="Usuario" ReturnType="Collection(xcolorModel.Usuario)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UsuarioInsert" EntitySet="Usuario" ReturnType="Collection(xcolorModel.Usuario)">
+            <Parameter Name="idPerfil" Mode="In" Type="Int32" />
+            <Parameter Name="usuario" Mode="In" Type="String" />
+            <Parameter Name="contraseña" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellido" Mode="In" Type="String" />
+            <Parameter Name="correoElectronico" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="UsuarioSelect" EntitySet="Usuario" ReturnType="Collection(xcolorModel.Usuario)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="UsuarioUpdate" EntitySet="Usuario" ReturnType="Collection(xcolorModel.Usuario)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="idPerfil" Mode="In" Type="Int32" />
+            <Parameter Name="usuario" Mode="In" Type="String" />
+            <Parameter Name="contraseña" Mode="In" Type="String" />
+            <Parameter Name="nombre" Mode="In" Type="String" />
+            <Parameter Name="apellido" Mode="In" Type="String" />
+            <Parameter Name="correoElectronico" Mode="In" Type="String" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VisitaDelete" EntitySet="Visita" ReturnType="Collection(xcolorModel.Visita)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="VisitaInsert" EntitySet="Visita" ReturnType="Collection(xcolorModel.Visita)">
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="fechaHoraInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="fechaHoraFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="ubicacionGPS" Mode="In" Type="String" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="VisitaSelect" EntitySet="Visita" ReturnType="Collection(xcolorModel.Visita)">
+          <Parameter Name="ID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="VisitaUpdate" EntitySet="Visita" ReturnType="Collection(xcolorModel.Visita)">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+            <Parameter Name="fechaHoraInicio" Mode="In" Type="DateTime" />
+            <Parameter Name="fechaHoraFinal" Mode="In" Type="DateTime" />
+            <Parameter Name="ubicacionGPS" Mode="In" Type="String" />
+            <Parameter Name="idCliente" Mode="In" Type="Int32" />
+            <Parameter Name="estado" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
+        <ComplexType Name="CantonSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="idProvincia" Nullable="false" />
+          <Property Type="String" Name="canton" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="ClienteSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="idRole" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="apellido" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="cedula" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="correo" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="DireccionClienteSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
+          <Property Type="String" Name="direccion" Nullable="false" MaxLength="1000" />
+          <Property Type="Int32" Name="idProvincia" Nullable="false" />
+          <Property Type="Int32" Name="idCanton" Nullable="false" />
+          <Property Type="Int32" Name="idDistrito" Nullable="false" />
+          <Property Type="Int32" Name="idTipoDireccion" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="DistritoSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="idCanton" Nullable="false" />
+          <Property Type="String" Name="Distrito" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="MarcaSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="marca" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="PedidoSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
+          <Property Type="Int32" Name="idEstado" Nullable="false" />
+          <Property Type="Int32" Name="idPedido" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="PerfilSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="PermisosSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="permiso" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="PermisosxPerfilSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="idPermiso" Nullable="false" />
+          <Property Type="Int32" Name="idPerfil" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="ProductoSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="producto" Nullable="false" MaxLength="20" />
+          <Property Type="String" Name="descripcion" Nullable="false" MaxLength="300" />
+          <Property Type="Int32" Name="idMarca" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="ProductosxPedidoSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="idPedido" Nullable="false" />
+          <Property Type="Int32" Name="idProducto" Nullable="false" />
+          <Property Type="Double" Name="cantidad" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="ProvinciaSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="provincia" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="ProvinciaSelectAll_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="provincia" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="TelefonoClienteSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
+          <Property Type="Int32" Name="idTipoTelefono" Nullable="false" />
+          <Property Type="String" Name="telefono" Nullable="false" MaxLength="20" />
+        </ComplexType>
+        <ComplexType Name="TipoDireccionSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="tipoDireccion" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="TipoTelefonoSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="tipoTelefono" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="UsuarioSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="idPerfil" Nullable="false" />
+          <Property Type="String" Name="usuario" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="contraseña" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nombre" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="apellido" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="VisitaSelect_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="idUsuario" Nullable="false" />
+          <Property Type="DateTime" Name="fechaHoraInicio" Nullable="false" Precision="23" />
+          <Property Type="DateTime" Name="fechaHoraFinal" Nullable="false" Precision="23" />
+          <Property Type="String" Name="ubicacionGPS" Nullable="false" MaxLength="100" />
+          <Property Type="Int32" Name="idCliente" Nullable="false" />
+          <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1025,7 +1745,7 @@
               <MappingFragment StoreEntitySet="Canton">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
-                <ScalarProperty Name="canton1" ColumnName="canton" />
+                <ScalarProperty Name="canton" ColumnName="canton" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1060,7 +1780,7 @@
               <MappingFragment StoreEntitySet="Distrito">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="idCanton" ColumnName="idCanton" />
-                <ScalarProperty Name="Distrito1" ColumnName="Distrito" />
+                <ScalarProperty Name="distrito" ColumnName="Distrito" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1068,7 +1788,7 @@
             <EntityTypeMapping TypeName="xcolorModel.Marca">
               <MappingFragment StoreEntitySet="Marca">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="marca1" ColumnName="marca" />
+                <ScalarProperty Name="marca" ColumnName="marca" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1116,7 +1836,7 @@
             <EntityTypeMapping TypeName="xcolorModel.Producto">
               <MappingFragment StoreEntitySet="Producto">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="producto1" ColumnName="producto" />
+                <ScalarProperty Name="producto" ColumnName="producto" />
                 <ScalarProperty Name="descripcion" ColumnName="descripcion" />
                 <ScalarProperty Name="idMarca" ColumnName="idMarca" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
@@ -1138,7 +1858,7 @@
             <EntityTypeMapping TypeName="xcolorModel.Provincia">
               <MappingFragment StoreEntitySet="Provincia">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="provincia1" ColumnName="provincia" />
+                <ScalarProperty Name="provincia" ColumnName="provincia" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1156,7 +1876,7 @@
             <EntityTypeMapping TypeName="xcolorModel.TipoDireccion">
               <MappingFragment StoreEntitySet="TipoDireccion">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="tipoDireccion1" ColumnName="tipoDireccion" />
+                <ScalarProperty Name="tipoDireccion" ColumnName="tipoDireccion" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1165,7 +1885,7 @@
             <EntityTypeMapping TypeName="xcolorModel.TipoTelefono">
               <MappingFragment StoreEntitySet="TipoTelefono">
                 <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="tipoTelefono1" ColumnName="tipoTelefono" />
+                <ScalarProperty Name="tipoTelefono" ColumnName="tipoTelefono" />
                 <ScalarProperty Name="estado" ColumnName="estado" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1175,7 +1895,7 @@
               <MappingFragment StoreEntitySet="Usuario">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="idPerfil" ColumnName="idPerfil" />
-                <ScalarProperty Name="usuario1" ColumnName="usuario" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
                 <ScalarProperty Name="contraseña" ColumnName="contraseña" />
                 <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="apellido" ColumnName="apellido" />
@@ -1197,6 +1917,93 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CantonDelete" FunctionName="xcolorModel.Store.CantonDelete" />
+          <FunctionImportMapping FunctionImportName="CantonInsert" FunctionName="xcolorModel.Store.CantonInsert" />
+          <FunctionImportMapping FunctionImportName="CantonSelect" FunctionName="xcolorModel.Store.CantonSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="CantonUpdate" FunctionName="xcolorModel.Store.CantonUpdate" />
+          <FunctionImportMapping FunctionImportName="ClienteDelete" FunctionName="xcolorModel.Store.ClienteDelete" />
+          <FunctionImportMapping FunctionImportName="ClienteInsert" FunctionName="xcolorModel.Store.ClienteInsert" />
+          <FunctionImportMapping FunctionImportName="ClienteSelect" FunctionName="xcolorModel.Store.ClienteSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ClienteUpdate" FunctionName="xcolorModel.Store.ClienteUpdate" />
+          <FunctionImportMapping FunctionImportName="DireccionClienteDelete" FunctionName="xcolorModel.Store.DireccionClienteDelete" />
+          <FunctionImportMapping FunctionImportName="DireccionClienteInsert" FunctionName="xcolorModel.Store.DireccionClienteInsert" />
+          <FunctionImportMapping FunctionImportName="DireccionClienteSelect" FunctionName="xcolorModel.Store.DireccionClienteSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DireccionClienteUpdate" FunctionName="xcolorModel.Store.DireccionClienteUpdate" />
+          <FunctionImportMapping FunctionImportName="DistritoDelete" FunctionName="xcolorModel.Store.DistritoDelete" />
+          <FunctionImportMapping FunctionImportName="DistritoInsert" FunctionName="xcolorModel.Store.DistritoInsert" />
+          <FunctionImportMapping FunctionImportName="DistritoSelect" FunctionName="xcolorModel.Store.DistritoSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="DistritoUpdate" FunctionName="xcolorModel.Store.DistritoUpdate" />
+          <FunctionImportMapping FunctionImportName="MarcaDelete" FunctionName="xcolorModel.Store.MarcaDelete" />
+          <FunctionImportMapping FunctionImportName="MarcaInsert" FunctionName="xcolorModel.Store.MarcaInsert" />
+          <FunctionImportMapping FunctionImportName="MarcaSelect" FunctionName="xcolorModel.Store.MarcaSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="MarcaUpdate" FunctionName="xcolorModel.Store.MarcaUpdate" />
+          <FunctionImportMapping FunctionImportName="PedidoDelete" FunctionName="xcolorModel.Store.PedidoDelete" />
+          <FunctionImportMapping FunctionImportName="PedidoInsert" FunctionName="xcolorModel.Store.PedidoInsert" />
+          <FunctionImportMapping FunctionImportName="PedidoSelect" FunctionName="xcolorModel.Store.PedidoSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PedidoUpdate" FunctionName="xcolorModel.Store.PedidoUpdate" />
+          <FunctionImportMapping FunctionImportName="PerfilDelete" FunctionName="xcolorModel.Store.PerfilDelete" />
+          <FunctionImportMapping FunctionImportName="PerfilInsert" FunctionName="xcolorModel.Store.PerfilInsert" />
+          <FunctionImportMapping FunctionImportName="PerfilSelect" FunctionName="xcolorModel.Store.PerfilSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PerfilUpdate" FunctionName="xcolorModel.Store.PerfilUpdate" />
+          <FunctionImportMapping FunctionImportName="PermisosDelete" FunctionName="xcolorModel.Store.PermisosDelete" />
+          <FunctionImportMapping FunctionImportName="PermisosInsert" FunctionName="xcolorModel.Store.PermisosInsert" />
+          <FunctionImportMapping FunctionImportName="PermisosSelect" FunctionName="xcolorModel.Store.PermisosSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PermisosUpdate" FunctionName="xcolorModel.Store.PermisosUpdate" />
+          <FunctionImportMapping FunctionImportName="PermisosxPerfilDelete" FunctionName="xcolorModel.Store.PermisosxPerfilDelete" />
+          <FunctionImportMapping FunctionImportName="PermisosxPerfilInsert" FunctionName="xcolorModel.Store.PermisosxPerfilInsert" />
+          <FunctionImportMapping FunctionImportName="PermisosxPerfilSelect" FunctionName="xcolorModel.Store.PermisosxPerfilSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="PermisosxPerfilUpdate" FunctionName="xcolorModel.Store.PermisosxPerfilUpdate" />
+          <FunctionImportMapping FunctionImportName="ProductoDelete" FunctionName="xcolorModel.Store.ProductoDelete" />
+          <FunctionImportMapping FunctionImportName="ProductoInsert" FunctionName="xcolorModel.Store.ProductoInsert" />
+          <FunctionImportMapping FunctionImportName="ProductoSelect" FunctionName="xcolorModel.Store.ProductoSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ProductosxPedidoDelete" FunctionName="xcolorModel.Store.ProductosxPedidoDelete" />
+          <FunctionImportMapping FunctionImportName="ProductosxPedidoInsert" FunctionName="xcolorModel.Store.ProductosxPedidoInsert" />
+          <FunctionImportMapping FunctionImportName="ProductosxPedidoSelect" FunctionName="xcolorModel.Store.ProductosxPedidoSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ProductosxPedidoUpdate" FunctionName="xcolorModel.Store.ProductosxPedidoUpdate" />
+          <FunctionImportMapping FunctionImportName="ProductoUpdate" FunctionName="xcolorModel.Store.ProductoUpdate" />
+          <FunctionImportMapping FunctionImportName="ProvinciaDelete" FunctionName="xcolorModel.Store.ProvinciaDelete" />
+          <FunctionImportMapping FunctionImportName="ProvinciaInsert" FunctionName="xcolorModel.Store.ProvinciaInsert" />
+          <FunctionImportMapping FunctionImportName="ProvinciaSelect" FunctionName="xcolorModel.Store.ProvinciaSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ProvinciaSelectAll" FunctionName="xcolorModel.Store.ProvinciaSelectAll">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="ProvinciaUpdate" FunctionName="xcolorModel.Store.ProvinciaUpdate" />
+          <FunctionImportMapping FunctionImportName="TelefonoClienteDelete" FunctionName="xcolorModel.Store.TelefonoClienteDelete" />
+          <FunctionImportMapping FunctionImportName="TelefonoClienteInsert" FunctionName="xcolorModel.Store.TelefonoClienteInsert" />
+          <FunctionImportMapping FunctionImportName="TelefonoClienteSelect" FunctionName="xcolorModel.Store.TelefonoClienteSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TelefonoClienteUpdate" FunctionName="xcolorModel.Store.TelefonoClienteUpdate" />
+          <FunctionImportMapping FunctionImportName="TipoDireccionDelete" FunctionName="xcolorModel.Store.TipoDireccionDelete" />
+          <FunctionImportMapping FunctionImportName="TipoDireccionInsert" FunctionName="xcolorModel.Store.TipoDireccionInsert" />
+          <FunctionImportMapping FunctionImportName="TipoDireccionSelect" FunctionName="xcolorModel.Store.TipoDireccionSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TipoDireccionUpdate" FunctionName="xcolorModel.Store.TipoDireccionUpdate" />
+          <FunctionImportMapping FunctionImportName="TipoTelefonoDelete" FunctionName="xcolorModel.Store.TipoTelefonoDelete" />
+          <FunctionImportMapping FunctionImportName="TipoTelefonoInsert" FunctionName="xcolorModel.Store.TipoTelefonoInsert" />
+          <FunctionImportMapping FunctionImportName="TipoTelefonoSelect" FunctionName="xcolorModel.Store.TipoTelefonoSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="TipoTelefonoUpdate" FunctionName="xcolorModel.Store.TipoTelefonoUpdate" />
+          <FunctionImportMapping FunctionImportName="UsuarioDelete" FunctionName="xcolorModel.Store.UsuarioDelete" />
+          <FunctionImportMapping FunctionImportName="UsuarioInsert" FunctionName="xcolorModel.Store.UsuarioInsert" />
+          <FunctionImportMapping FunctionImportName="UsuarioSelect" FunctionName="xcolorModel.Store.UsuarioSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="UsuarioUpdate" FunctionName="xcolorModel.Store.UsuarioUpdate" />
+          <FunctionImportMapping FunctionImportName="VisitaDelete" FunctionName="xcolorModel.Store.VisitaDelete" />
+          <FunctionImportMapping FunctionImportName="VisitaInsert" FunctionName="xcolorModel.Store.VisitaInsert" />
+          <FunctionImportMapping FunctionImportName="VisitaSelect" FunctionName="xcolorModel.Store.VisitaSelect">
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="VisitaUpdate" FunctionName="xcolorModel.Store.VisitaUpdate" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

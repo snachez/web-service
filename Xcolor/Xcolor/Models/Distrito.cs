@@ -22,7 +22,7 @@ namespace Xcolor.Models
     
         public int ID { get; set; }
         public int idCanton { get; set; }
-        public string Distrito1 { get; set; }
+        public string distrito { get; set; }
     
         public virtual Canton Canton { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

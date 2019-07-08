@@ -183,15 +183,25 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\CantonsController.cs" />
-    <Compile Include="Controllers\ClientesController.cs" />
-    <Compile Include="Controllers\DireccionClientesController.cs" />
-    <Compile Include="Controllers\DistritoesController.cs" />
+    <Compile Include="Controllers\API\CantonesController.cs" />
+    <Compile Include="Controllers\API\ClientesController.cs" />
+    <Compile Include="Controllers\API\DireccionesClientesController.cs" />
+    <Compile Include="Controllers\API\DistritosController.cs" />
+    <Compile Include="Controllers\API\MarcasController.cs" />
+    <Compile Include="Controllers\API\PedidosController.cs" />
+    <Compile Include="Controllers\API\PerfilesController.cs" />
+    <Compile Include="Controllers\API\PermisosController.cs" />
+    <Compile Include="Controllers\API\PermisosxPerfilesController.cs" />
+    <Compile Include="Controllers\API\ProductosController.cs" />
+    <Compile Include="Controllers\API\ProductosxPedidosController.cs" />
+    <Compile Include="Controllers\API\ProvinciasController.cs" />
+    <Compile Include="Controllers\API\TelefonosClientesController.cs" />
+    <Compile Include="Controllers\API\TiposDireccionesController.cs" />
+    <Compile Include="Controllers\API\TipoTelefonosController.cs" />
+    <Compile Include="Controllers\API\UsuariosController.cs" />
+    <Compile Include="Controllers\API\VisitasController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\MarcasController.cs" />
-    <Compile Include="Controllers\PedidosController.cs" />
-    <Compile Include="Controllers\PerfilesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,13 +209,25 @@
     <Compile Include="Models\Canton.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CantonSelect_Result.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Cliente.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClienteSelect_Result.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\DireccionCliente.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DireccionClienteSelect_Result.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Distrito.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DistritoSelect_Result.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
@@ -213,40 +235,82 @@
     <Compile Include="Models\Marca.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\MarcaSelect_Result.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Pedido.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PedidoSelect_Result.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Perfil.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PerfilSelect_Result.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Permisos.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PermisosSelect_Result.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\PermisosxPerfil.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\PermisosxPerfilSelect_Result.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Producto.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProductoSelect_Result.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductosxPedido.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductosxPedidoSelect_Result.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Provincia.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProvinciaSelectAll_Result.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProvinciaSelect_Result.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TelefonoCliente.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TelefonoClienteSelect_Result.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\TipoDireccion.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TipoDireccionSelect_Result.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\TipoTelefono.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\TipoTelefonoSelect_Result.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Usuario.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\UsuarioSelect_Result.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Visita.cs">
+      <DependentUpon>XcolorContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VisitaSelect_Result.cs">
       <DependentUpon>XcolorContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\XcolorContext.Context.cs">
@@ -318,8 +382,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -341,41 +403,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Cantons\Create.cshtml" />
-    <Content Include="Views\Cantons\Delete.cshtml" />
-    <Content Include="Views\Cantons\Details.cshtml" />
-    <Content Include="Views\Cantons\Edit.cshtml" />
-    <Content Include="Views\Cantons\Index.cshtml" />
-    <Content Include="Views\Clientes\Create.cshtml" />
-    <Content Include="Views\Clientes\Delete.cshtml" />
-    <Content Include="Views\Clientes\Details.cshtml" />
-    <Content Include="Views\Clientes\Edit.cshtml" />
-    <Content Include="Views\Clientes\Index.cshtml" />
-    <Content Include="Views\DireccionClientes\Create.cshtml" />
-    <Content Include="Views\DireccionClientes\Delete.cshtml" />
-    <Content Include="Views\DireccionClientes\Details.cshtml" />
-    <Content Include="Views\DireccionClientes\Edit.cshtml" />
-    <Content Include="Views\DireccionClientes\Index.cshtml" />
-    <Content Include="Views\Distritoes\Create.cshtml" />
-    <Content Include="Views\Distritoes\Delete.cshtml" />
-    <Content Include="Views\Distritoes\Details.cshtml" />
-    <Content Include="Views\Distritoes\Edit.cshtml" />
-    <Content Include="Views\Distritoes\Index.cshtml" />
-    <Content Include="Views\Marcas\Create.cshtml" />
-    <Content Include="Views\Marcas\Delete.cshtml" />
-    <Content Include="Views\Marcas\Details.cshtml" />
-    <Content Include="Views\Marcas\Edit.cshtml" />
-    <Content Include="Views\Marcas\Index.cshtml" />
-    <Content Include="Views\Pedidos\Create.cshtml" />
-    <Content Include="Views\Pedidos\Delete.cshtml" />
-    <Content Include="Views\Pedidos\Details.cshtml" />
-    <Content Include="Views\Pedidos\Edit.cshtml" />
-    <Content Include="Views\Pedidos\Index.cshtml" />
-    <Content Include="Views\Perfiles\Create.cshtml" />
-    <Content Include="Views\Perfiles\Delete.cshtml" />
-    <Content Include="Views\Perfiles\Details.cshtml" />
-    <Content Include="Views\Perfiles\Edit.cshtml" />
-    <Content Include="Views\Perfiles\Index.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,7 +23,7 @@ namespace Xcolor.Models
     
         public int ID { get; set; }
         public int idProvincia { get; set; }
-        public string canton1 { get; set; }
+        public string canton { get; set; }
     
         public virtual Provincia Provincia { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

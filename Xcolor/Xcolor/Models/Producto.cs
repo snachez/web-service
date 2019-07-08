@@ -21,7 +21,7 @@ namespace Xcolor.Models
         }
     
         public int ID { get; set; }
-        public string producto1 { get; set; }
+        public string producto { get; set; }
         public string descripcion { get; set; }
         public int idMarca { get; set; }
         public string estado { get; set; }

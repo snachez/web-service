@@ -6,7 +6,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idProvincia" Type="Int32" Nullable="false" />
-    <Property Name="canton1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="canton" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Provincia" Relationship="Self.FK_Canton_Provincia" FromRole="Canton" ToRole="Provincia" />
     <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_Canton" FromRole="Canton" ToRole="DireccionCliente" />
     <NavigationProperty Name="Distrito" Relationship="Self.FK_Distrito_Canton" FromRole="Canton" ToRole="Distrito" />
@@ -50,7 +50,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idCanton" Type="Int32" Nullable="false" />
-    <Property Name="Distrito1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="distrito" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Canton" Relationship="Self.FK_Distrito_Canton" FromRole="Distrito" ToRole="Canton" />
     <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_Distrito" FromRole="Distrito" ToRole="DireccionCliente" />
   </EntityType>
@@ -59,7 +59,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="marca1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="marca" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Producto" Relationship="Self.FK_Producto_Marca" FromRole="Marca" ToRole="Producto" />
   </EntityType>
@@ -111,7 +111,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="producto1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="producto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="idMarca" Type="Int32" Nullable="false" />
     <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
@@ -135,7 +135,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="provincia1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="provincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="Canton" Relationship="Self.FK_Canton_Provincia" FromRole="Provincia" ToRole="Canton" />
     <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_Provincia" FromRole="Provincia" ToRole="DireccionCliente" />
   </EntityType>
@@ -155,7 +155,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="tipoDireccion1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipoDireccion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_TipoDireccion" FromRole="TipoDireccion" ToRole="DireccionCliente" />
   </EntityType>
@@ -164,7 +164,7 @@
       <PropertyRef Name="ID" />
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="tipoTelefono1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="tipoTelefono" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
     <NavigationProperty Name="TelefonoCliente" Relationship="Self.FK_TelefonoCliente_TipoTelefono" FromRole="TipoTelefono" ToRole="TelefonoCliente" />
   </EntityType>
@@ -174,7 +174,7 @@
     </Key>
     <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="idPerfil" Type="Int32" Nullable="false" />
-    <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="usuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
@@ -520,5 +520,422 @@
       <End Role="Usuario" EntitySet="Usuario" />
       <End Role="Visita" EntitySet="Visita" />
     </AssociationSet>
+    <FunctionImport Name="CantonDelete" EntitySet="Canton" ReturnType="Collection(xcolorModel.Canton)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CantonInsert" EntitySet="Canton" ReturnType="Collection(xcolorModel.Canton)">
+      <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+      <Parameter Name="canton" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="CantonSelect" EntitySet="Canton" ReturnType="Collection(xcolorModel.Canton)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CantonUpdate" EntitySet="Canton" ReturnType="Collection(xcolorModel.Canton)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+      <Parameter Name="canton" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ClienteDelete" EntitySet="Cliente" ReturnType="Collection(xcolorModel.Cliente)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ClienteInsert" EntitySet="Cliente" ReturnType="Collection(xcolorModel.Cliente)">
+      <Parameter Name="idRole" Mode="In" Type="Int32" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellido" Mode="In" Type="String" />
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ClienteSelect" EntitySet="Cliente" ReturnType="Collection(xcolorModel.Cliente)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ClienteUpdate" EntitySet="Cliente" ReturnType="Collection(xcolorModel.Cliente)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="idRole" Mode="In" Type="Int32" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellido" Mode="In" Type="String" />
+      <Parameter Name="cedula" Mode="In" Type="String" />
+      <Parameter Name="correo" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DireccionClienteDelete" EntitySet="DireccionCliente" ReturnType="Collection(xcolorModel.DireccionCliente)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DireccionClienteInsert" EntitySet="DireccionCliente" ReturnType="Collection(xcolorModel.DireccionCliente)">
+      <Parameter Name="idCliente" Mode="In" Type="Int32" />
+      <Parameter Name="direccion" Mode="In" Type="String" />
+      <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+      <Parameter Name="idCanton" Mode="In" Type="Int32" />
+      <Parameter Name="idDistrito" Mode="In" Type="Int32" />
+      <Parameter Name="idTipoDireccion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DireccionClienteSelect" EntitySet="DireccionCliente" ReturnType="Collection(xcolorModel.DireccionCliente)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DireccionClienteUpdate" EntitySet="DireccionCliente" ReturnType="Collection(xcolorModel.DireccionCliente)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="idCliente" Mode="In" Type="Int32" />
+      <Parameter Name="direccion" Mode="In" Type="String" />
+      <Parameter Name="idProvincia" Mode="In" Type="Int32" />
+      <Parameter Name="idCanton" Mode="In" Type="Int32" />
+      <Parameter Name="idDistrito" Mode="In" Type="Int32" />
+      <Parameter Name="idTipoDireccion" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DistritoDelete" EntitySet="Distrito" ReturnType="Collection(xcolorModel.Distrito)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DistritoInsert" EntitySet="Distrito" ReturnType="Collection(xcolorModel.Distrito)">
+      <Parameter Name="idCanton" Mode="In" Type="Int32" />
+      <Parameter Name="Distrito" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DistritoSelect" EntitySet="Distrito" ReturnType="Collection(xcolorModel.Distrito)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DistritoUpdate" EntitySet="Distrito" ReturnType="Collection(xcolorModel.Distrito)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="idCanton" Mode="In" Type="Int32" />
+      <Parameter Name="Distrito" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="MarcaDelete" EntitySet="Marca" ReturnType="Collection(xcolorModel.Marca)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="MarcaInsert" EntitySet="Marca" ReturnType="Collection(xcolorModel.Marca)">
+      <Parameter Name="marca" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="MarcaSelect" EntitySet="Marca" ReturnType="Collection(xcolorModel.Marca)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="MarcaUpdate" EntitySet="Marca" ReturnType="Collection(xcolorModel.Marca)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="marca" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PedidoDelete" EntitySet="Pedido" ReturnType="Collection(xcolorModel.Pedido)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PedidoInsert" EntitySet="Pedido" ReturnType="Collection(xcolorModel.Pedido)">
+      <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="idCliente" Mode="In" Type="Int32" />
+      <Parameter Name="idEstado" Mode="In" Type="Int32" />
+      <Parameter Name="idPedido" Mode="In" Type="Int32" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PedidoSelect" EntitySet="Pedido" ReturnType="Collection(xcolorModel.Pedido)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PedidoUpdate" EntitySet="Pedido" ReturnType="Collection(xcolorModel.Pedido)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="idCliente" Mode="In" Type="Int32" />
+      <Parameter Name="idEstado" Mode="In" Type="Int32" />
+      <Parameter Name="idPedido" Mode="In" Type="Int32" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PerfilDelete" EntitySet="Perfil" ReturnType="Collection(xcolorModel.Perfil)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PerfilInsert" EntitySet="Perfil" ReturnType="Collection(xcolorModel.Perfil)">
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PerfilSelect" EntitySet="Perfil" ReturnType="Collection(xcolorModel.Perfil)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PerfilUpdate" EntitySet="Perfil" ReturnType="Collection(xcolorModel.Perfil)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PermisosDelete" EntitySet="Permisos" ReturnType="Collection(xcolorModel.Permisos)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PermisosInsert" EntitySet="Permisos" ReturnType="Collection(xcolorModel.Permisos)">
+      <Parameter Name="permiso" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PermisosSelect" EntitySet="Permisos" ReturnType="Collection(xcolorModel.Permisos)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PermisosUpdate" EntitySet="Permisos" ReturnType="Collection(xcolorModel.Permisos)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="permiso" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="PermisosxPerfilDelete" EntitySet="PermisosxPerfil" ReturnType="Collection(xcolorModel.PermisosxPerfil)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PermisosxPerfilInsert" EntitySet="PermisosxPerfil" ReturnType="Collection(xcolorModel.PermisosxPerfil)">
+      <Parameter Name="idPermiso" Mode="In" Type="Int32" />
+      <Parameter Name="idPerfil" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PermisosxPerfilSelect" EntitySet="PermisosxPerfil" ReturnType="Collection(xcolorModel.PermisosxPerfil)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="PermisosxPerfilUpdate" EntitySet="PermisosxPerfil" ReturnType="Collection(xcolorModel.PermisosxPerfil)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="idPermiso" Mode="In" Type="Int32" />
+      <Parameter Name="idPerfil" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ProductoDelete" EntitySet="Producto" ReturnType="Collection(xcolorModel.Producto)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ProductoInsert" EntitySet="Producto" ReturnType="Collection(xcolorModel.Producto)">
+      <Parameter Name="producto" Mode="In" Type="String" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+      <Parameter Name="idMarca" Mode="In" Type="Int32" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ProductoSelect" EntitySet="Producto" ReturnType="Collection(xcolorModel.Producto)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ProductosxPedidoDelete" EntitySet="ProductosxPedido" ReturnType="Collection(xcolorModel.ProductosxPedido)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ProductosxPedidoInsert" EntitySet="ProductosxPedido" ReturnType="Collection(xcolorModel.ProductosxPedido)">
+      <Parameter Name="idPedido" Mode="In" Type="Int32" />
+      <Parameter Name="idProducto" Mode="In" Type="Int32" />
+      <Parameter Name="cantidad" Mode="In" Type="Double" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ProductosxPedidoSelect" EntitySet="ProductosxPedido" ReturnType="Collection(xcolorModel.ProductosxPedido)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ProductosxPedidoUpdate" EntitySet="ProductosxPedido" ReturnType="Collection(xcolorModel.ProductosxPedido)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="idPedido" Mode="In" Type="Int32" />
+      <Parameter Name="idProducto" Mode="In" Type="Int32" />
+      <Parameter Name="cantidad" Mode="In" Type="Double" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ProductoUpdate" EntitySet="Producto" ReturnType="Collection(xcolorModel.Producto)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="producto" Mode="In" Type="String" />
+      <Parameter Name="descripcion" Mode="In" Type="String" />
+      <Parameter Name="idMarca" Mode="In" Type="Int32" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ProvinciaDelete" EntitySet="Provincia" ReturnType="Collection(xcolorModel.Provincia)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ProvinciaInsert" EntitySet="Provincia" ReturnType="Collection(xcolorModel.Provincia)">
+      <Parameter Name="provincia" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ProvinciaSelect" EntitySet="Provincia" ReturnType="Collection(xcolorModel.Provincia)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ProvinciaSelectAll" EntitySet="Provincia" ReturnType="Collection(xcolorModel.Provincia)" />
+    <FunctionImport Name="ProvinciaUpdate" EntitySet="Provincia" ReturnType="Collection(xcolorModel.Provincia)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="provincia" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TelefonoClienteDelete" EntitySet="TelefonoCliente" ReturnType="Collection(xcolorModel.TelefonoCliente)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TelefonoClienteInsert" EntitySet="TelefonoCliente" ReturnType="Collection(xcolorModel.TelefonoCliente)">
+      <Parameter Name="idCliente" Mode="In" Type="Int32" />
+      <Parameter Name="idTipoTelefono" Mode="In" Type="Int32" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TelefonoClienteSelect" EntitySet="TelefonoCliente" ReturnType="Collection(xcolorModel.TelefonoCliente)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TelefonoClienteUpdate" EntitySet="TelefonoCliente" ReturnType="Collection(xcolorModel.TelefonoCliente)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="idCliente" Mode="In" Type="Int32" />
+      <Parameter Name="idTipoTelefono" Mode="In" Type="Int32" />
+      <Parameter Name="telefono" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TipoDireccionDelete" EntitySet="TipoDireccion" ReturnType="Collection(xcolorModel.TipoDireccion)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TipoDireccionInsert" EntitySet="TipoDireccion" ReturnType="Collection(xcolorModel.TipoDireccion)">
+      <Parameter Name="tipoDireccion" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TipoDireccionSelect" EntitySet="TipoDireccion" ReturnType="Collection(xcolorModel.TipoDireccion)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TipoDireccionUpdate" EntitySet="TipoDireccion" ReturnType="Collection(xcolorModel.TipoDireccion)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="tipoDireccion" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TipoTelefonoDelete" EntitySet="TipoTelefono" ReturnType="Collection(xcolorModel.TipoTelefono)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TipoTelefonoInsert" EntitySet="TipoTelefono" ReturnType="Collection(xcolorModel.TipoTelefono)">
+      <Parameter Name="tipoTelefono" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="TipoTelefonoSelect" EntitySet="TipoTelefono" ReturnType="Collection(xcolorModel.TipoTelefono)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="TipoTelefonoUpdate" EntitySet="TipoTelefono" ReturnType="Collection(xcolorModel.TipoTelefono)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="tipoTelefono" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UsuarioDelete" EntitySet="Usuario" ReturnType="Collection(xcolorModel.Usuario)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UsuarioInsert" EntitySet="Usuario" ReturnType="Collection(xcolorModel.Usuario)">
+      <Parameter Name="idPerfil" Mode="In" Type="Int32" />
+      <Parameter Name="usuario" Mode="In" Type="String" />
+      <Parameter Name="contraseña" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellido" Mode="In" Type="String" />
+      <Parameter Name="correoElectronico" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UsuarioSelect" EntitySet="Usuario" ReturnType="Collection(xcolorModel.Usuario)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UsuarioUpdate" EntitySet="Usuario" ReturnType="Collection(xcolorModel.Usuario)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="idPerfil" Mode="In" Type="Int32" />
+      <Parameter Name="usuario" Mode="In" Type="String" />
+      <Parameter Name="contraseña" Mode="In" Type="String" />
+      <Parameter Name="nombre" Mode="In" Type="String" />
+      <Parameter Name="apellido" Mode="In" Type="String" />
+      <Parameter Name="correoElectronico" Mode="In" Type="String" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VisitaDelete" EntitySet="Visita" ReturnType="Collection(xcolorModel.Visita)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="VisitaInsert" EntitySet="Visita" ReturnType="Collection(xcolorModel.Visita)">
+      <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="fechaHoraInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="fechaHoraFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="ubicacionGPS" Mode="In" Type="String" />
+      <Parameter Name="idCliente" Mode="In" Type="Int32" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="VisitaSelect" EntitySet="Visita" ReturnType="Collection(xcolorModel.Visita)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="VisitaUpdate" EntitySet="Visita" ReturnType="Collection(xcolorModel.Visita)">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="idUsuario" Mode="In" Type="Int32" />
+      <Parameter Name="fechaHoraInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="fechaHoraFinal" Mode="In" Type="DateTime" />
+      <Parameter Name="ubicacionGPS" Mode="In" Type="String" />
+      <Parameter Name="idCliente" Mode="In" Type="Int32" />
+      <Parameter Name="estado" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
+  <ComplexType Name="CantonSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="idProvincia" Nullable="false" />
+    <Property Type="String" Name="canton" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ClienteSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="idRole" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="apellido" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="cedula" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="correo" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="DireccionClienteSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="idCliente" Nullable="false" />
+    <Property Type="String" Name="direccion" Nullable="false" MaxLength="1000" />
+    <Property Type="Int32" Name="idProvincia" Nullable="false" />
+    <Property Type="Int32" Name="idCanton" Nullable="false" />
+    <Property Type="Int32" Name="idDistrito" Nullable="false" />
+    <Property Type="Int32" Name="idTipoDireccion" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="DistritoSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="idCanton" Nullable="false" />
+    <Property Type="String" Name="Distrito" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="MarcaSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="marca" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="PedidoSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="idUsuario" Nullable="false" />
+    <Property Type="Int32" Name="idCliente" Nullable="false" />
+    <Property Type="Int32" Name="idEstado" Nullable="false" />
+    <Property Type="Int32" Name="idPedido" Nullable="false" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="PerfilSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="PermisosSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="permiso" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="PermisosxPerfilSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="idPermiso" Nullable="false" />
+    <Property Type="Int32" Name="idPerfil" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ProductoSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="producto" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="descripcion" Nullable="false" MaxLength="300" />
+    <Property Type="Int32" Name="idMarca" Nullable="false" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="ProductosxPedidoSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="idPedido" Nullable="false" />
+    <Property Type="Int32" Name="idProducto" Nullable="false" />
+    <Property Type="Double" Name="cantidad" Nullable="false" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="ProvinciaSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="provincia" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="ProvinciaSelectAll_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="provincia" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="TelefonoClienteSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="idCliente" Nullable="false" />
+    <Property Type="Int32" Name="idTipoTelefono" Nullable="false" />
+    <Property Type="String" Name="telefono" Nullable="false" MaxLength="20" />
+  </ComplexType>
+  <ComplexType Name="TipoDireccionSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="tipoDireccion" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="TipoTelefonoSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="tipoTelefono" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="UsuarioSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="idPerfil" Nullable="false" />
+    <Property Type="String" Name="usuario" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="contraseña" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nombre" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="apellido" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="correoElectronico" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="VisitaSelect_Result">
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="Int32" Name="idUsuario" Nullable="false" />
+    <Property Type="DateTime" Name="fechaHoraInicio" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="fechaHoraFinal" Nullable="false" Precision="23" />
+    <Property Type="String" Name="ubicacionGPS" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="idCliente" Nullable="false" />
+    <Property Type="String" Name="estado" Nullable="false" MaxLength="1" />
+  </ComplexType>
 </Schema>

@@ -12,6 +12,8 @@ namespace Xcolor.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class xcolorEntities : DbContext
     {
@@ -42,5 +44,2031 @@ namespace Xcolor.Models
         public virtual DbSet<TipoTelefono> TipoTelefono { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
         public virtual DbSet<Visita> Visita { get; set; }
+    
+        public virtual ObjectResult<Canton> CantonDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Canton>("CantonDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Canton> CantonDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Canton>("CantonDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Canton> CantonInsert(Nullable<int> idProvincia, string canton)
+        {
+            var idProvinciaParameter = idProvincia.HasValue ?
+                new ObjectParameter("idProvincia", idProvincia) :
+                new ObjectParameter("idProvincia", typeof(int));
+    
+            var cantonParameter = canton != null ?
+                new ObjectParameter("canton", canton) :
+                new ObjectParameter("canton", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Canton>("CantonInsert", idProvinciaParameter, cantonParameter);
+        }
+    
+        public virtual ObjectResult<Canton> CantonInsert(Nullable<int> idProvincia, string canton, MergeOption mergeOption)
+        {
+            var idProvinciaParameter = idProvincia.HasValue ?
+                new ObjectParameter("idProvincia", idProvincia) :
+                new ObjectParameter("idProvincia", typeof(int));
+    
+            var cantonParameter = canton != null ?
+                new ObjectParameter("canton", canton) :
+                new ObjectParameter("canton", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Canton>("CantonInsert", mergeOption, idProvinciaParameter, cantonParameter);
+        }
+    
+        public virtual ObjectResult<Canton> CantonSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Canton>("CantonSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<Canton> CantonSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Canton>("CantonSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Canton> CantonUpdate(Nullable<int> iD, Nullable<int> idProvincia, string canton)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idProvinciaParameter = idProvincia.HasValue ?
+                new ObjectParameter("idProvincia", idProvincia) :
+                new ObjectParameter("idProvincia", typeof(int));
+    
+            var cantonParameter = canton != null ?
+                new ObjectParameter("canton", canton) :
+                new ObjectParameter("canton", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Canton>("CantonUpdate", iDParameter, idProvinciaParameter, cantonParameter);
+        }
+    
+        public virtual ObjectResult<Canton> CantonUpdate(Nullable<int> iD, Nullable<int> idProvincia, string canton, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idProvinciaParameter = idProvincia.HasValue ?
+                new ObjectParameter("idProvincia", idProvincia) :
+                new ObjectParameter("idProvincia", typeof(int));
+    
+            var cantonParameter = canton != null ?
+                new ObjectParameter("canton", canton) :
+                new ObjectParameter("canton", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Canton>("CantonUpdate", mergeOption, iDParameter, idProvinciaParameter, cantonParameter);
+        }
+    
+        public virtual ObjectResult<Cliente> ClienteDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cliente>("ClienteDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Cliente> ClienteDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cliente>("ClienteDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Cliente> ClienteInsert(Nullable<int> idRole, string nombre, string apellido, string cedula, string correo, string estado)
+        {
+            var idRoleParameter = idRole.HasValue ?
+                new ObjectParameter("idRole", idRole) :
+                new ObjectParameter("idRole", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("apellido", apellido) :
+                new ObjectParameter("apellido", typeof(string));
+    
+            var cedulaParameter = cedula != null ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cliente>("ClienteInsert", idRoleParameter, nombreParameter, apellidoParameter, cedulaParameter, correoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Cliente> ClienteInsert(Nullable<int> idRole, string nombre, string apellido, string cedula, string correo, string estado, MergeOption mergeOption)
+        {
+            var idRoleParameter = idRole.HasValue ?
+                new ObjectParameter("idRole", idRole) :
+                new ObjectParameter("idRole", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("apellido", apellido) :
+                new ObjectParameter("apellido", typeof(string));
+    
+            var cedulaParameter = cedula != null ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cliente>("ClienteInsert", mergeOption, idRoleParameter, nombreParameter, apellidoParameter, cedulaParameter, correoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Cliente> ClienteSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cliente>("ClienteSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<Cliente> ClienteSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cliente>("ClienteSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Cliente> ClienteUpdate(Nullable<int> iD, Nullable<int> idRole, string nombre, string apellido, string cedula, string correo, string estado)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idRoleParameter = idRole.HasValue ?
+                new ObjectParameter("idRole", idRole) :
+                new ObjectParameter("idRole", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("apellido", apellido) :
+                new ObjectParameter("apellido", typeof(string));
+    
+            var cedulaParameter = cedula != null ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cliente>("ClienteUpdate", iDParameter, idRoleParameter, nombreParameter, apellidoParameter, cedulaParameter, correoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Cliente> ClienteUpdate(Nullable<int> iD, Nullable<int> idRole, string nombre, string apellido, string cedula, string correo, string estado, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idRoleParameter = idRole.HasValue ?
+                new ObjectParameter("idRole", idRole) :
+                new ObjectParameter("idRole", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("apellido", apellido) :
+                new ObjectParameter("apellido", typeof(string));
+    
+            var cedulaParameter = cedula != null ?
+                new ObjectParameter("cedula", cedula) :
+                new ObjectParameter("cedula", typeof(string));
+    
+            var correoParameter = correo != null ?
+                new ObjectParameter("correo", correo) :
+                new ObjectParameter("correo", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Cliente>("ClienteUpdate", mergeOption, iDParameter, idRoleParameter, nombreParameter, apellidoParameter, cedulaParameter, correoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<DireccionCliente> DireccionClienteDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DireccionCliente>("DireccionClienteDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<DireccionCliente> DireccionClienteDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DireccionCliente>("DireccionClienteDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<DireccionCliente> DireccionClienteInsert(Nullable<int> idCliente, string direccion, Nullable<int> idProvincia, Nullable<int> idCanton, Nullable<int> idDistrito, Nullable<int> idTipoDireccion)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("direccion", direccion) :
+                new ObjectParameter("direccion", typeof(string));
+    
+            var idProvinciaParameter = idProvincia.HasValue ?
+                new ObjectParameter("idProvincia", idProvincia) :
+                new ObjectParameter("idProvincia", typeof(int));
+    
+            var idCantonParameter = idCanton.HasValue ?
+                new ObjectParameter("idCanton", idCanton) :
+                new ObjectParameter("idCanton", typeof(int));
+    
+            var idDistritoParameter = idDistrito.HasValue ?
+                new ObjectParameter("idDistrito", idDistrito) :
+                new ObjectParameter("idDistrito", typeof(int));
+    
+            var idTipoDireccionParameter = idTipoDireccion.HasValue ?
+                new ObjectParameter("idTipoDireccion", idTipoDireccion) :
+                new ObjectParameter("idTipoDireccion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DireccionCliente>("DireccionClienteInsert", idClienteParameter, direccionParameter, idProvinciaParameter, idCantonParameter, idDistritoParameter, idTipoDireccionParameter);
+        }
+    
+        public virtual ObjectResult<DireccionCliente> DireccionClienteInsert(Nullable<int> idCliente, string direccion, Nullable<int> idProvincia, Nullable<int> idCanton, Nullable<int> idDistrito, Nullable<int> idTipoDireccion, MergeOption mergeOption)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("direccion", direccion) :
+                new ObjectParameter("direccion", typeof(string));
+    
+            var idProvinciaParameter = idProvincia.HasValue ?
+                new ObjectParameter("idProvincia", idProvincia) :
+                new ObjectParameter("idProvincia", typeof(int));
+    
+            var idCantonParameter = idCanton.HasValue ?
+                new ObjectParameter("idCanton", idCanton) :
+                new ObjectParameter("idCanton", typeof(int));
+    
+            var idDistritoParameter = idDistrito.HasValue ?
+                new ObjectParameter("idDistrito", idDistrito) :
+                new ObjectParameter("idDistrito", typeof(int));
+    
+            var idTipoDireccionParameter = idTipoDireccion.HasValue ?
+                new ObjectParameter("idTipoDireccion", idTipoDireccion) :
+                new ObjectParameter("idTipoDireccion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DireccionCliente>("DireccionClienteInsert", mergeOption, idClienteParameter, direccionParameter, idProvinciaParameter, idCantonParameter, idDistritoParameter, idTipoDireccionParameter);
+        }
+    
+        public virtual ObjectResult<DireccionCliente> DireccionClienteSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DireccionCliente>("DireccionClienteSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<DireccionCliente> DireccionClienteSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DireccionCliente>("DireccionClienteSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<DireccionCliente> DireccionClienteUpdate(Nullable<int> iD, Nullable<int> idCliente, string direccion, Nullable<int> idProvincia, Nullable<int> idCanton, Nullable<int> idDistrito, Nullable<int> idTipoDireccion)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("direccion", direccion) :
+                new ObjectParameter("direccion", typeof(string));
+    
+            var idProvinciaParameter = idProvincia.HasValue ?
+                new ObjectParameter("idProvincia", idProvincia) :
+                new ObjectParameter("idProvincia", typeof(int));
+    
+            var idCantonParameter = idCanton.HasValue ?
+                new ObjectParameter("idCanton", idCanton) :
+                new ObjectParameter("idCanton", typeof(int));
+    
+            var idDistritoParameter = idDistrito.HasValue ?
+                new ObjectParameter("idDistrito", idDistrito) :
+                new ObjectParameter("idDistrito", typeof(int));
+    
+            var idTipoDireccionParameter = idTipoDireccion.HasValue ?
+                new ObjectParameter("idTipoDireccion", idTipoDireccion) :
+                new ObjectParameter("idTipoDireccion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DireccionCliente>("DireccionClienteUpdate", iDParameter, idClienteParameter, direccionParameter, idProvinciaParameter, idCantonParameter, idDistritoParameter, idTipoDireccionParameter);
+        }
+    
+        public virtual ObjectResult<DireccionCliente> DireccionClienteUpdate(Nullable<int> iD, Nullable<int> idCliente, string direccion, Nullable<int> idProvincia, Nullable<int> idCanton, Nullable<int> idDistrito, Nullable<int> idTipoDireccion, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var direccionParameter = direccion != null ?
+                new ObjectParameter("direccion", direccion) :
+                new ObjectParameter("direccion", typeof(string));
+    
+            var idProvinciaParameter = idProvincia.HasValue ?
+                new ObjectParameter("idProvincia", idProvincia) :
+                new ObjectParameter("idProvincia", typeof(int));
+    
+            var idCantonParameter = idCanton.HasValue ?
+                new ObjectParameter("idCanton", idCanton) :
+                new ObjectParameter("idCanton", typeof(int));
+    
+            var idDistritoParameter = idDistrito.HasValue ?
+                new ObjectParameter("idDistrito", idDistrito) :
+                new ObjectParameter("idDistrito", typeof(int));
+    
+            var idTipoDireccionParameter = idTipoDireccion.HasValue ?
+                new ObjectParameter("idTipoDireccion", idTipoDireccion) :
+                new ObjectParameter("idTipoDireccion", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<DireccionCliente>("DireccionClienteUpdate", mergeOption, iDParameter, idClienteParameter, direccionParameter, idProvinciaParameter, idCantonParameter, idDistritoParameter, idTipoDireccionParameter);
+        }
+    
+        public virtual ObjectResult<Distrito> DistritoDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Distrito>("DistritoDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Distrito> DistritoDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Distrito>("DistritoDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Distrito> DistritoInsert(Nullable<int> idCanton, string distrito)
+        {
+            var idCantonParameter = idCanton.HasValue ?
+                new ObjectParameter("idCanton", idCanton) :
+                new ObjectParameter("idCanton", typeof(int));
+    
+            var distritoParameter = distrito != null ?
+                new ObjectParameter("Distrito", distrito) :
+                new ObjectParameter("Distrito", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Distrito>("DistritoInsert", idCantonParameter, distritoParameter);
+        }
+    
+        public virtual ObjectResult<Distrito> DistritoInsert(Nullable<int> idCanton, string distrito, MergeOption mergeOption)
+        {
+            var idCantonParameter = idCanton.HasValue ?
+                new ObjectParameter("idCanton", idCanton) :
+                new ObjectParameter("idCanton", typeof(int));
+    
+            var distritoParameter = distrito != null ?
+                new ObjectParameter("Distrito", distrito) :
+                new ObjectParameter("Distrito", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Distrito>("DistritoInsert", mergeOption, idCantonParameter, distritoParameter);
+        }
+    
+        public virtual ObjectResult<Distrito> DistritoSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Distrito>("DistritoSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<Distrito> DistritoSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Distrito>("DistritoSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Distrito> DistritoUpdate(Nullable<int> iD, Nullable<int> idCanton, string distrito)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idCantonParameter = idCanton.HasValue ?
+                new ObjectParameter("idCanton", idCanton) :
+                new ObjectParameter("idCanton", typeof(int));
+    
+            var distritoParameter = distrito != null ?
+                new ObjectParameter("Distrito", distrito) :
+                new ObjectParameter("Distrito", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Distrito>("DistritoUpdate", iDParameter, idCantonParameter, distritoParameter);
+        }
+    
+        public virtual ObjectResult<Distrito> DistritoUpdate(Nullable<int> iD, Nullable<int> idCanton, string distrito, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idCantonParameter = idCanton.HasValue ?
+                new ObjectParameter("idCanton", idCanton) :
+                new ObjectParameter("idCanton", typeof(int));
+    
+            var distritoParameter = distrito != null ?
+                new ObjectParameter("Distrito", distrito) :
+                new ObjectParameter("Distrito", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Distrito>("DistritoUpdate", mergeOption, iDParameter, idCantonParameter, distritoParameter);
+        }
+    
+        public virtual ObjectResult<Marca> MarcaDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Marca>("MarcaDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Marca> MarcaDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Marca>("MarcaDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Marca> MarcaInsert(string marca, string estado)
+        {
+            var marcaParameter = marca != null ?
+                new ObjectParameter("marca", marca) :
+                new ObjectParameter("marca", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Marca>("MarcaInsert", marcaParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Marca> MarcaInsert(string marca, string estado, MergeOption mergeOption)
+        {
+            var marcaParameter = marca != null ?
+                new ObjectParameter("marca", marca) :
+                new ObjectParameter("marca", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Marca>("MarcaInsert", mergeOption, marcaParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Marca> MarcaSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Marca>("MarcaSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<Marca> MarcaSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Marca>("MarcaSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Marca> MarcaUpdate(Nullable<int> iD, string marca, string estado)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var marcaParameter = marca != null ?
+                new ObjectParameter("marca", marca) :
+                new ObjectParameter("marca", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Marca>("MarcaUpdate", iDParameter, marcaParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Marca> MarcaUpdate(Nullable<int> iD, string marca, string estado, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var marcaParameter = marca != null ?
+                new ObjectParameter("marca", marca) :
+                new ObjectParameter("marca", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Marca>("MarcaUpdate", mergeOption, iDParameter, marcaParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Pedido> PedidoDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Pedido>("PedidoDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Pedido> PedidoDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Pedido>("PedidoDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Pedido> PedidoInsert(Nullable<int> idUsuario, Nullable<int> idCliente, Nullable<int> idEstado, Nullable<int> idPedido, string estado)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var idEstadoParameter = idEstado.HasValue ?
+                new ObjectParameter("idEstado", idEstado) :
+                new ObjectParameter("idEstado", typeof(int));
+    
+            var idPedidoParameter = idPedido.HasValue ?
+                new ObjectParameter("idPedido", idPedido) :
+                new ObjectParameter("idPedido", typeof(int));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Pedido>("PedidoInsert", idUsuarioParameter, idClienteParameter, idEstadoParameter, idPedidoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Pedido> PedidoInsert(Nullable<int> idUsuario, Nullable<int> idCliente, Nullable<int> idEstado, Nullable<int> idPedido, string estado, MergeOption mergeOption)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var idEstadoParameter = idEstado.HasValue ?
+                new ObjectParameter("idEstado", idEstado) :
+                new ObjectParameter("idEstado", typeof(int));
+    
+            var idPedidoParameter = idPedido.HasValue ?
+                new ObjectParameter("idPedido", idPedido) :
+                new ObjectParameter("idPedido", typeof(int));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Pedido>("PedidoInsert", mergeOption, idUsuarioParameter, idClienteParameter, idEstadoParameter, idPedidoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Pedido> PedidoSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Pedido>("PedidoSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<Pedido> PedidoSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Pedido>("PedidoSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Pedido> PedidoUpdate(Nullable<int> iD, Nullable<int> idUsuario, Nullable<int> idCliente, Nullable<int> idEstado, Nullable<int> idPedido, string estado)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var idEstadoParameter = idEstado.HasValue ?
+                new ObjectParameter("idEstado", idEstado) :
+                new ObjectParameter("idEstado", typeof(int));
+    
+            var idPedidoParameter = idPedido.HasValue ?
+                new ObjectParameter("idPedido", idPedido) :
+                new ObjectParameter("idPedido", typeof(int));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Pedido>("PedidoUpdate", iDParameter, idUsuarioParameter, idClienteParameter, idEstadoParameter, idPedidoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Pedido> PedidoUpdate(Nullable<int> iD, Nullable<int> idUsuario, Nullable<int> idCliente, Nullable<int> idEstado, Nullable<int> idPedido, string estado, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var idEstadoParameter = idEstado.HasValue ?
+                new ObjectParameter("idEstado", idEstado) :
+                new ObjectParameter("idEstado", typeof(int));
+    
+            var idPedidoParameter = idPedido.HasValue ?
+                new ObjectParameter("idPedido", idPedido) :
+                new ObjectParameter("idPedido", typeof(int));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Pedido>("PedidoUpdate", mergeOption, iDParameter, idUsuarioParameter, idClienteParameter, idEstadoParameter, idPedidoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Perfil> PerfilDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Perfil>("PerfilDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Perfil> PerfilDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Perfil>("PerfilDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Perfil> PerfilInsert(string nombre, string estado)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Perfil>("PerfilInsert", nombreParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Perfil> PerfilInsert(string nombre, string estado, MergeOption mergeOption)
+        {
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Perfil>("PerfilInsert", mergeOption, nombreParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Perfil> PerfilSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Perfil>("PerfilSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<Perfil> PerfilSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Perfil>("PerfilSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Perfil> PerfilUpdate(Nullable<int> iD, string nombre, string estado)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Perfil>("PerfilUpdate", iDParameter, nombreParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Perfil> PerfilUpdate(Nullable<int> iD, string nombre, string estado, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Perfil>("PerfilUpdate", mergeOption, iDParameter, nombreParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Permisos> PermisosDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Permisos>("PermisosDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Permisos> PermisosDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Permisos>("PermisosDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Permisos> PermisosInsert(string permiso, string estado)
+        {
+            var permisoParameter = permiso != null ?
+                new ObjectParameter("permiso", permiso) :
+                new ObjectParameter("permiso", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Permisos>("PermisosInsert", permisoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Permisos> PermisosInsert(string permiso, string estado, MergeOption mergeOption)
+        {
+            var permisoParameter = permiso != null ?
+                new ObjectParameter("permiso", permiso) :
+                new ObjectParameter("permiso", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Permisos>("PermisosInsert", mergeOption, permisoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Permisos> PermisosSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Permisos>("PermisosSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<Permisos> PermisosSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Permisos>("PermisosSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Permisos> PermisosUpdate(Nullable<int> iD, string permiso, string estado)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var permisoParameter = permiso != null ?
+                new ObjectParameter("permiso", permiso) :
+                new ObjectParameter("permiso", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Permisos>("PermisosUpdate", iDParameter, permisoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Permisos> PermisosUpdate(Nullable<int> iD, string permiso, string estado, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var permisoParameter = permiso != null ?
+                new ObjectParameter("permiso", permiso) :
+                new ObjectParameter("permiso", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Permisos>("PermisosUpdate", mergeOption, iDParameter, permisoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<PermisosxPerfil> PermisosxPerfilDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PermisosxPerfil>("PermisosxPerfilDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<PermisosxPerfil> PermisosxPerfilDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PermisosxPerfil>("PermisosxPerfilDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<PermisosxPerfil> PermisosxPerfilInsert(Nullable<int> idPermiso, Nullable<int> idPerfil)
+        {
+            var idPermisoParameter = idPermiso.HasValue ?
+                new ObjectParameter("idPermiso", idPermiso) :
+                new ObjectParameter("idPermiso", typeof(int));
+    
+            var idPerfilParameter = idPerfil.HasValue ?
+                new ObjectParameter("idPerfil", idPerfil) :
+                new ObjectParameter("idPerfil", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PermisosxPerfil>("PermisosxPerfilInsert", idPermisoParameter, idPerfilParameter);
+        }
+    
+        public virtual ObjectResult<PermisosxPerfil> PermisosxPerfilInsert(Nullable<int> idPermiso, Nullable<int> idPerfil, MergeOption mergeOption)
+        {
+            var idPermisoParameter = idPermiso.HasValue ?
+                new ObjectParameter("idPermiso", idPermiso) :
+                new ObjectParameter("idPermiso", typeof(int));
+    
+            var idPerfilParameter = idPerfil.HasValue ?
+                new ObjectParameter("idPerfil", idPerfil) :
+                new ObjectParameter("idPerfil", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PermisosxPerfil>("PermisosxPerfilInsert", mergeOption, idPermisoParameter, idPerfilParameter);
+        }
+    
+        public virtual ObjectResult<PermisosxPerfil> PermisosxPerfilSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PermisosxPerfil>("PermisosxPerfilSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<PermisosxPerfil> PermisosxPerfilSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PermisosxPerfil>("PermisosxPerfilSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<PermisosxPerfil> PermisosxPerfilUpdate(Nullable<int> iD, Nullable<int> idPermiso, Nullable<int> idPerfil)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idPermisoParameter = idPermiso.HasValue ?
+                new ObjectParameter("idPermiso", idPermiso) :
+                new ObjectParameter("idPermiso", typeof(int));
+    
+            var idPerfilParameter = idPerfil.HasValue ?
+                new ObjectParameter("idPerfil", idPerfil) :
+                new ObjectParameter("idPerfil", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PermisosxPerfil>("PermisosxPerfilUpdate", iDParameter, idPermisoParameter, idPerfilParameter);
+        }
+    
+        public virtual ObjectResult<PermisosxPerfil> PermisosxPerfilUpdate(Nullable<int> iD, Nullable<int> idPermiso, Nullable<int> idPerfil, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idPermisoParameter = idPermiso.HasValue ?
+                new ObjectParameter("idPermiso", idPermiso) :
+                new ObjectParameter("idPermiso", typeof(int));
+    
+            var idPerfilParameter = idPerfil.HasValue ?
+                new ObjectParameter("idPerfil", idPerfil) :
+                new ObjectParameter("idPerfil", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<PermisosxPerfil>("PermisosxPerfilUpdate", mergeOption, iDParameter, idPermisoParameter, idPerfilParameter);
+        }
+    
+        public virtual ObjectResult<Producto> ProductoDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Producto>("ProductoDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Producto> ProductoDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Producto>("ProductoDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Producto> ProductoInsert(string producto, string descripcion, Nullable<int> idMarca, string estado)
+        {
+            var productoParameter = producto != null ?
+                new ObjectParameter("producto", producto) :
+                new ObjectParameter("producto", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("descripcion", descripcion) :
+                new ObjectParameter("descripcion", typeof(string));
+    
+            var idMarcaParameter = idMarca.HasValue ?
+                new ObjectParameter("idMarca", idMarca) :
+                new ObjectParameter("idMarca", typeof(int));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Producto>("ProductoInsert", productoParameter, descripcionParameter, idMarcaParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Producto> ProductoInsert(string producto, string descripcion, Nullable<int> idMarca, string estado, MergeOption mergeOption)
+        {
+            var productoParameter = producto != null ?
+                new ObjectParameter("producto", producto) :
+                new ObjectParameter("producto", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("descripcion", descripcion) :
+                new ObjectParameter("descripcion", typeof(string));
+    
+            var idMarcaParameter = idMarca.HasValue ?
+                new ObjectParameter("idMarca", idMarca) :
+                new ObjectParameter("idMarca", typeof(int));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Producto>("ProductoInsert", mergeOption, productoParameter, descripcionParameter, idMarcaParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Producto> ProductoSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Producto>("ProductoSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<Producto> ProductoSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Producto>("ProductoSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<ProductosxPedido> ProductosxPedidoDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductosxPedido>("ProductosxPedidoDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<ProductosxPedido> ProductosxPedidoDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductosxPedido>("ProductosxPedidoDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<ProductosxPedido> ProductosxPedidoInsert(Nullable<int> idPedido, Nullable<int> idProducto, Nullable<double> cantidad, string estado)
+        {
+            var idPedidoParameter = idPedido.HasValue ?
+                new ObjectParameter("idPedido", idPedido) :
+                new ObjectParameter("idPedido", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("idProducto", idProducto) :
+                new ObjectParameter("idProducto", typeof(int));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("cantidad", cantidad) :
+                new ObjectParameter("cantidad", typeof(double));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductosxPedido>("ProductosxPedidoInsert", idPedidoParameter, idProductoParameter, cantidadParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<ProductosxPedido> ProductosxPedidoInsert(Nullable<int> idPedido, Nullable<int> idProducto, Nullable<double> cantidad, string estado, MergeOption mergeOption)
+        {
+            var idPedidoParameter = idPedido.HasValue ?
+                new ObjectParameter("idPedido", idPedido) :
+                new ObjectParameter("idPedido", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("idProducto", idProducto) :
+                new ObjectParameter("idProducto", typeof(int));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("cantidad", cantidad) :
+                new ObjectParameter("cantidad", typeof(double));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductosxPedido>("ProductosxPedidoInsert", mergeOption, idPedidoParameter, idProductoParameter, cantidadParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<ProductosxPedido> ProductosxPedidoSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductosxPedido>("ProductosxPedidoSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<ProductosxPedido> ProductosxPedidoSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductosxPedido>("ProductosxPedidoSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<ProductosxPedido> ProductosxPedidoUpdate(Nullable<int> iD, Nullable<int> idPedido, Nullable<int> idProducto, Nullable<double> cantidad, string estado)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idPedidoParameter = idPedido.HasValue ?
+                new ObjectParameter("idPedido", idPedido) :
+                new ObjectParameter("idPedido", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("idProducto", idProducto) :
+                new ObjectParameter("idProducto", typeof(int));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("cantidad", cantidad) :
+                new ObjectParameter("cantidad", typeof(double));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductosxPedido>("ProductosxPedidoUpdate", iDParameter, idPedidoParameter, idProductoParameter, cantidadParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<ProductosxPedido> ProductosxPedidoUpdate(Nullable<int> iD, Nullable<int> idPedido, Nullable<int> idProducto, Nullable<double> cantidad, string estado, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idPedidoParameter = idPedido.HasValue ?
+                new ObjectParameter("idPedido", idPedido) :
+                new ObjectParameter("idPedido", typeof(int));
+    
+            var idProductoParameter = idProducto.HasValue ?
+                new ObjectParameter("idProducto", idProducto) :
+                new ObjectParameter("idProducto", typeof(int));
+    
+            var cantidadParameter = cantidad.HasValue ?
+                new ObjectParameter("cantidad", cantidad) :
+                new ObjectParameter("cantidad", typeof(double));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductosxPedido>("ProductosxPedidoUpdate", mergeOption, iDParameter, idPedidoParameter, idProductoParameter, cantidadParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Producto> ProductoUpdate(Nullable<int> iD, string producto, string descripcion, Nullable<int> idMarca, string estado)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var productoParameter = producto != null ?
+                new ObjectParameter("producto", producto) :
+                new ObjectParameter("producto", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("descripcion", descripcion) :
+                new ObjectParameter("descripcion", typeof(string));
+    
+            var idMarcaParameter = idMarca.HasValue ?
+                new ObjectParameter("idMarca", idMarca) :
+                new ObjectParameter("idMarca", typeof(int));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Producto>("ProductoUpdate", iDParameter, productoParameter, descripcionParameter, idMarcaParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Producto> ProductoUpdate(Nullable<int> iD, string producto, string descripcion, Nullable<int> idMarca, string estado, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var productoParameter = producto != null ?
+                new ObjectParameter("producto", producto) :
+                new ObjectParameter("producto", typeof(string));
+    
+            var descripcionParameter = descripcion != null ?
+                new ObjectParameter("descripcion", descripcion) :
+                new ObjectParameter("descripcion", typeof(string));
+    
+            var idMarcaParameter = idMarca.HasValue ?
+                new ObjectParameter("idMarca", idMarca) :
+                new ObjectParameter("idMarca", typeof(int));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Producto>("ProductoUpdate", mergeOption, iDParameter, productoParameter, descripcionParameter, idMarcaParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Provincia> ProvinciaDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Provincia>("ProvinciaDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Provincia> ProvinciaDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Provincia>("ProvinciaDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Provincia> ProvinciaInsert(string provincia)
+        {
+            var provinciaParameter = provincia != null ?
+                new ObjectParameter("provincia", provincia) :
+                new ObjectParameter("provincia", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Provincia>("ProvinciaInsert", provinciaParameter);
+        }
+    
+        public virtual ObjectResult<Provincia> ProvinciaInsert(string provincia, MergeOption mergeOption)
+        {
+            var provinciaParameter = provincia != null ?
+                new ObjectParameter("provincia", provincia) :
+                new ObjectParameter("provincia", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Provincia>("ProvinciaInsert", mergeOption, provinciaParameter);
+        }
+    
+        public virtual ObjectResult<Provincia> ProvinciaSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Provincia>("ProvinciaSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<Provincia> ProvinciaSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Provincia>("ProvinciaSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Provincia> ProvinciaSelectAll()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Provincia>("ProvinciaSelectAll");
+        }
+    
+        public virtual ObjectResult<Provincia> ProvinciaSelectAll(MergeOption mergeOption)
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Provincia>("ProvinciaSelectAll", mergeOption);
+        }
+    
+        public virtual ObjectResult<Provincia> ProvinciaUpdate(Nullable<int> iD, string provincia)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var provinciaParameter = provincia != null ?
+                new ObjectParameter("provincia", provincia) :
+                new ObjectParameter("provincia", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Provincia>("ProvinciaUpdate", iDParameter, provinciaParameter);
+        }
+    
+        public virtual ObjectResult<Provincia> ProvinciaUpdate(Nullable<int> iD, string provincia, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var provinciaParameter = provincia != null ?
+                new ObjectParameter("provincia", provincia) :
+                new ObjectParameter("provincia", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Provincia>("ProvinciaUpdate", mergeOption, iDParameter, provinciaParameter);
+        }
+    
+        public virtual ObjectResult<TelefonoCliente> TelefonoClienteDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TelefonoCliente>("TelefonoClienteDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<TelefonoCliente> TelefonoClienteDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TelefonoCliente>("TelefonoClienteDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<TelefonoCliente> TelefonoClienteInsert(Nullable<int> idCliente, Nullable<int> idTipoTelefono, string telefono)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var idTipoTelefonoParameter = idTipoTelefono.HasValue ?
+                new ObjectParameter("idTipoTelefono", idTipoTelefono) :
+                new ObjectParameter("idTipoTelefono", typeof(int));
+    
+            var telefonoParameter = telefono != null ?
+                new ObjectParameter("telefono", telefono) :
+                new ObjectParameter("telefono", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TelefonoCliente>("TelefonoClienteInsert", idClienteParameter, idTipoTelefonoParameter, telefonoParameter);
+        }
+    
+        public virtual ObjectResult<TelefonoCliente> TelefonoClienteInsert(Nullable<int> idCliente, Nullable<int> idTipoTelefono, string telefono, MergeOption mergeOption)
+        {
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var idTipoTelefonoParameter = idTipoTelefono.HasValue ?
+                new ObjectParameter("idTipoTelefono", idTipoTelefono) :
+                new ObjectParameter("idTipoTelefono", typeof(int));
+    
+            var telefonoParameter = telefono != null ?
+                new ObjectParameter("telefono", telefono) :
+                new ObjectParameter("telefono", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TelefonoCliente>("TelefonoClienteInsert", mergeOption, idClienteParameter, idTipoTelefonoParameter, telefonoParameter);
+        }
+    
+        public virtual ObjectResult<TelefonoCliente> TelefonoClienteSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TelefonoCliente>("TelefonoClienteSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<TelefonoCliente> TelefonoClienteSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TelefonoCliente>("TelefonoClienteSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<TelefonoCliente> TelefonoClienteUpdate(Nullable<int> iD, Nullable<int> idCliente, Nullable<int> idTipoTelefono, string telefono)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var idTipoTelefonoParameter = idTipoTelefono.HasValue ?
+                new ObjectParameter("idTipoTelefono", idTipoTelefono) :
+                new ObjectParameter("idTipoTelefono", typeof(int));
+    
+            var telefonoParameter = telefono != null ?
+                new ObjectParameter("telefono", telefono) :
+                new ObjectParameter("telefono", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TelefonoCliente>("TelefonoClienteUpdate", iDParameter, idClienteParameter, idTipoTelefonoParameter, telefonoParameter);
+        }
+    
+        public virtual ObjectResult<TelefonoCliente> TelefonoClienteUpdate(Nullable<int> iD, Nullable<int> idCliente, Nullable<int> idTipoTelefono, string telefono, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var idTipoTelefonoParameter = idTipoTelefono.HasValue ?
+                new ObjectParameter("idTipoTelefono", idTipoTelefono) :
+                new ObjectParameter("idTipoTelefono", typeof(int));
+    
+            var telefonoParameter = telefono != null ?
+                new ObjectParameter("telefono", telefono) :
+                new ObjectParameter("telefono", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TelefonoCliente>("TelefonoClienteUpdate", mergeOption, iDParameter, idClienteParameter, idTipoTelefonoParameter, telefonoParameter);
+        }
+    
+        public virtual ObjectResult<TipoDireccion> TipoDireccionDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoDireccion>("TipoDireccionDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<TipoDireccion> TipoDireccionDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoDireccion>("TipoDireccionDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<TipoDireccion> TipoDireccionInsert(string tipoDireccion, string estado)
+        {
+            var tipoDireccionParameter = tipoDireccion != null ?
+                new ObjectParameter("tipoDireccion", tipoDireccion) :
+                new ObjectParameter("tipoDireccion", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoDireccion>("TipoDireccionInsert", tipoDireccionParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<TipoDireccion> TipoDireccionInsert(string tipoDireccion, string estado, MergeOption mergeOption)
+        {
+            var tipoDireccionParameter = tipoDireccion != null ?
+                new ObjectParameter("tipoDireccion", tipoDireccion) :
+                new ObjectParameter("tipoDireccion", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoDireccion>("TipoDireccionInsert", mergeOption, tipoDireccionParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<TipoDireccion> TipoDireccionSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoDireccion>("TipoDireccionSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<TipoDireccion> TipoDireccionSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoDireccion>("TipoDireccionSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<TipoDireccion> TipoDireccionUpdate(Nullable<int> iD, string tipoDireccion, string estado)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var tipoDireccionParameter = tipoDireccion != null ?
+                new ObjectParameter("tipoDireccion", tipoDireccion) :
+                new ObjectParameter("tipoDireccion", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoDireccion>("TipoDireccionUpdate", iDParameter, tipoDireccionParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<TipoDireccion> TipoDireccionUpdate(Nullable<int> iD, string tipoDireccion, string estado, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var tipoDireccionParameter = tipoDireccion != null ?
+                new ObjectParameter("tipoDireccion", tipoDireccion) :
+                new ObjectParameter("tipoDireccion", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoDireccion>("TipoDireccionUpdate", mergeOption, iDParameter, tipoDireccionParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<TipoTelefono> TipoTelefonoDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoTelefono>("TipoTelefonoDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<TipoTelefono> TipoTelefonoDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoTelefono>("TipoTelefonoDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<TipoTelefono> TipoTelefonoInsert(string tipoTelefono, string estado)
+        {
+            var tipoTelefonoParameter = tipoTelefono != null ?
+                new ObjectParameter("tipoTelefono", tipoTelefono) :
+                new ObjectParameter("tipoTelefono", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoTelefono>("TipoTelefonoInsert", tipoTelefonoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<TipoTelefono> TipoTelefonoInsert(string tipoTelefono, string estado, MergeOption mergeOption)
+        {
+            var tipoTelefonoParameter = tipoTelefono != null ?
+                new ObjectParameter("tipoTelefono", tipoTelefono) :
+                new ObjectParameter("tipoTelefono", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoTelefono>("TipoTelefonoInsert", mergeOption, tipoTelefonoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<TipoTelefono> TipoTelefonoSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoTelefono>("TipoTelefonoSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<TipoTelefono> TipoTelefonoSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoTelefono>("TipoTelefonoSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<TipoTelefono> TipoTelefonoUpdate(Nullable<int> iD, string tipoTelefono, string estado)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var tipoTelefonoParameter = tipoTelefono != null ?
+                new ObjectParameter("tipoTelefono", tipoTelefono) :
+                new ObjectParameter("tipoTelefono", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoTelefono>("TipoTelefonoUpdate", iDParameter, tipoTelefonoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<TipoTelefono> TipoTelefonoUpdate(Nullable<int> iD, string tipoTelefono, string estado, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var tipoTelefonoParameter = tipoTelefono != null ?
+                new ObjectParameter("tipoTelefono", tipoTelefono) :
+                new ObjectParameter("tipoTelefono", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<TipoTelefono>("TipoTelefonoUpdate", mergeOption, iDParameter, tipoTelefonoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Usuario> UsuarioDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usuario>("UsuarioDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Usuario> UsuarioDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usuario>("UsuarioDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Usuario> UsuarioInsert(Nullable<int> idPerfil, string usuario, string contraseña, string nombre, string apellido, string correoElectronico, string estado)
+        {
+            var idPerfilParameter = idPerfil.HasValue ?
+                new ObjectParameter("idPerfil", idPerfil) :
+                new ObjectParameter("idPerfil", typeof(int));
+    
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            var contraseñaParameter = contraseña != null ?
+                new ObjectParameter("contraseña", contraseña) :
+                new ObjectParameter("contraseña", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("apellido", apellido) :
+                new ObjectParameter("apellido", typeof(string));
+    
+            var correoElectronicoParameter = correoElectronico != null ?
+                new ObjectParameter("correoElectronico", correoElectronico) :
+                new ObjectParameter("correoElectronico", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usuario>("UsuarioInsert", idPerfilParameter, usuarioParameter, contraseñaParameter, nombreParameter, apellidoParameter, correoElectronicoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Usuario> UsuarioInsert(Nullable<int> idPerfil, string usuario, string contraseña, string nombre, string apellido, string correoElectronico, string estado, MergeOption mergeOption)
+        {
+            var idPerfilParameter = idPerfil.HasValue ?
+                new ObjectParameter("idPerfil", idPerfil) :
+                new ObjectParameter("idPerfil", typeof(int));
+    
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            var contraseñaParameter = contraseña != null ?
+                new ObjectParameter("contraseña", contraseña) :
+                new ObjectParameter("contraseña", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("apellido", apellido) :
+                new ObjectParameter("apellido", typeof(string));
+    
+            var correoElectronicoParameter = correoElectronico != null ?
+                new ObjectParameter("correoElectronico", correoElectronico) :
+                new ObjectParameter("correoElectronico", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usuario>("UsuarioInsert", mergeOption, idPerfilParameter, usuarioParameter, contraseñaParameter, nombreParameter, apellidoParameter, correoElectronicoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Usuario> UsuarioSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usuario>("UsuarioSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<Usuario> UsuarioSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usuario>("UsuarioSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Usuario> UsuarioUpdate(Nullable<int> iD, Nullable<int> idPerfil, string usuario, string contraseña, string nombre, string apellido, string correoElectronico, string estado)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idPerfilParameter = idPerfil.HasValue ?
+                new ObjectParameter("idPerfil", idPerfil) :
+                new ObjectParameter("idPerfil", typeof(int));
+    
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            var contraseñaParameter = contraseña != null ?
+                new ObjectParameter("contraseña", contraseña) :
+                new ObjectParameter("contraseña", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("apellido", apellido) :
+                new ObjectParameter("apellido", typeof(string));
+    
+            var correoElectronicoParameter = correoElectronico != null ?
+                new ObjectParameter("correoElectronico", correoElectronico) :
+                new ObjectParameter("correoElectronico", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usuario>("UsuarioUpdate", iDParameter, idPerfilParameter, usuarioParameter, contraseñaParameter, nombreParameter, apellidoParameter, correoElectronicoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Usuario> UsuarioUpdate(Nullable<int> iD, Nullable<int> idPerfil, string usuario, string contraseña, string nombre, string apellido, string correoElectronico, string estado, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idPerfilParameter = idPerfil.HasValue ?
+                new ObjectParameter("idPerfil", idPerfil) :
+                new ObjectParameter("idPerfil", typeof(int));
+    
+            var usuarioParameter = usuario != null ?
+                new ObjectParameter("usuario", usuario) :
+                new ObjectParameter("usuario", typeof(string));
+    
+            var contraseñaParameter = contraseña != null ?
+                new ObjectParameter("contraseña", contraseña) :
+                new ObjectParameter("contraseña", typeof(string));
+    
+            var nombreParameter = nombre != null ?
+                new ObjectParameter("nombre", nombre) :
+                new ObjectParameter("nombre", typeof(string));
+    
+            var apellidoParameter = apellido != null ?
+                new ObjectParameter("apellido", apellido) :
+                new ObjectParameter("apellido", typeof(string));
+    
+            var correoElectronicoParameter = correoElectronico != null ?
+                new ObjectParameter("correoElectronico", correoElectronico) :
+                new ObjectParameter("correoElectronico", typeof(string));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Usuario>("UsuarioUpdate", mergeOption, iDParameter, idPerfilParameter, usuarioParameter, contraseñaParameter, nombreParameter, apellidoParameter, correoElectronicoParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Visita> VisitaDelete(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Visita>("VisitaDelete", iDParameter);
+        }
+    
+        public virtual ObjectResult<Visita> VisitaDelete(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Visita>("VisitaDelete", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Visita> VisitaInsert(Nullable<int> idUsuario, Nullable<System.DateTime> fechaHoraInicio, Nullable<System.DateTime> fechaHoraFinal, string ubicacionGPS, Nullable<int> idCliente, string estado)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var fechaHoraInicioParameter = fechaHoraInicio.HasValue ?
+                new ObjectParameter("fechaHoraInicio", fechaHoraInicio) :
+                new ObjectParameter("fechaHoraInicio", typeof(System.DateTime));
+    
+            var fechaHoraFinalParameter = fechaHoraFinal.HasValue ?
+                new ObjectParameter("fechaHoraFinal", fechaHoraFinal) :
+                new ObjectParameter("fechaHoraFinal", typeof(System.DateTime));
+    
+            var ubicacionGPSParameter = ubicacionGPS != null ?
+                new ObjectParameter("ubicacionGPS", ubicacionGPS) :
+                new ObjectParameter("ubicacionGPS", typeof(string));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Visita>("VisitaInsert", idUsuarioParameter, fechaHoraInicioParameter, fechaHoraFinalParameter, ubicacionGPSParameter, idClienteParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Visita> VisitaInsert(Nullable<int> idUsuario, Nullable<System.DateTime> fechaHoraInicio, Nullable<System.DateTime> fechaHoraFinal, string ubicacionGPS, Nullable<int> idCliente, string estado, MergeOption mergeOption)
+        {
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var fechaHoraInicioParameter = fechaHoraInicio.HasValue ?
+                new ObjectParameter("fechaHoraInicio", fechaHoraInicio) :
+                new ObjectParameter("fechaHoraInicio", typeof(System.DateTime));
+    
+            var fechaHoraFinalParameter = fechaHoraFinal.HasValue ?
+                new ObjectParameter("fechaHoraFinal", fechaHoraFinal) :
+                new ObjectParameter("fechaHoraFinal", typeof(System.DateTime));
+    
+            var ubicacionGPSParameter = ubicacionGPS != null ?
+                new ObjectParameter("ubicacionGPS", ubicacionGPS) :
+                new ObjectParameter("ubicacionGPS", typeof(string));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Visita>("VisitaInsert", mergeOption, idUsuarioParameter, fechaHoraInicioParameter, fechaHoraFinalParameter, ubicacionGPSParameter, idClienteParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Visita> VisitaSelect(Nullable<int> iD)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Visita>("VisitaSelect", iDParameter);
+        }
+    
+        public virtual ObjectResult<Visita> VisitaSelect(Nullable<int> iD, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Visita>("VisitaSelect", mergeOption, iDParameter);
+        }
+    
+        public virtual ObjectResult<Visita> VisitaUpdate(Nullable<int> iD, Nullable<int> idUsuario, Nullable<System.DateTime> fechaHoraInicio, Nullable<System.DateTime> fechaHoraFinal, string ubicacionGPS, Nullable<int> idCliente, string estado)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var fechaHoraInicioParameter = fechaHoraInicio.HasValue ?
+                new ObjectParameter("fechaHoraInicio", fechaHoraInicio) :
+                new ObjectParameter("fechaHoraInicio", typeof(System.DateTime));
+    
+            var fechaHoraFinalParameter = fechaHoraFinal.HasValue ?
+                new ObjectParameter("fechaHoraFinal", fechaHoraFinal) :
+                new ObjectParameter("fechaHoraFinal", typeof(System.DateTime));
+    
+            var ubicacionGPSParameter = ubicacionGPS != null ?
+                new ObjectParameter("ubicacionGPS", ubicacionGPS) :
+                new ObjectParameter("ubicacionGPS", typeof(string));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Visita>("VisitaUpdate", iDParameter, idUsuarioParameter, fechaHoraInicioParameter, fechaHoraFinalParameter, ubicacionGPSParameter, idClienteParameter, estadoParameter);
+        }
+    
+        public virtual ObjectResult<Visita> VisitaUpdate(Nullable<int> iD, Nullable<int> idUsuario, Nullable<System.DateTime> fechaHoraInicio, Nullable<System.DateTime> fechaHoraFinal, string ubicacionGPS, Nullable<int> idCliente, string estado, MergeOption mergeOption)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var idUsuarioParameter = idUsuario.HasValue ?
+                new ObjectParameter("idUsuario", idUsuario) :
+                new ObjectParameter("idUsuario", typeof(int));
+    
+            var fechaHoraInicioParameter = fechaHoraInicio.HasValue ?
+                new ObjectParameter("fechaHoraInicio", fechaHoraInicio) :
+                new ObjectParameter("fechaHoraInicio", typeof(System.DateTime));
+    
+            var fechaHoraFinalParameter = fechaHoraFinal.HasValue ?
+                new ObjectParameter("fechaHoraFinal", fechaHoraFinal) :
+                new ObjectParameter("fechaHoraFinal", typeof(System.DateTime));
+    
+            var ubicacionGPSParameter = ubicacionGPS != null ?
+                new ObjectParameter("ubicacionGPS", ubicacionGPS) :
+                new ObjectParameter("ubicacionGPS", typeof(string));
+    
+            var idClienteParameter = idCliente.HasValue ?
+                new ObjectParameter("idCliente", idCliente) :
+                new ObjectParameter("idCliente", typeof(int));
+    
+            var estadoParameter = estado != null ?
+                new ObjectParameter("estado", estado) :
+                new ObjectParameter("estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Visita>("VisitaUpdate", mergeOption, iDParameter, idUsuarioParameter, fechaHoraInicioParameter, fechaHoraFinalParameter, ubicacionGPSParameter, idClienteParameter, estadoParameter);
+        }
     }
 }
