@@ -1,0 +1,72 @@
+﻿@model Xcolor.Models.DireccionCliente
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DireccionCliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Canton.canton1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Canton.canton1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Distrito.Distrito1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distrito.Distrito1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Provincia.provincia1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provincia.provincia1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoDireccion.tipoDireccion1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoDireccion.tipoDireccion1)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,66 @@
+﻿@model Xcolor.Models.DireccionCliente
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DireccionCliente</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Canton.canton1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Canton.canton1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cliente.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cliente.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Distrito.Distrito1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Distrito.Distrito1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Provincia.provincia1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Provincia.provincia1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoDireccion.tipoDireccion1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoDireccion.tipoDireccion1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

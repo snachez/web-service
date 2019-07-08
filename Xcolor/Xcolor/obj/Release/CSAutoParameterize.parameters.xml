@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection Cadena de conexión que usa la aplicación en web.config para obtener acceso a la base de datos." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;Initial Catalog=aspnet-Xcolor-c760bba1-e900-47f5-935f-67ac3cff8a87;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|\aspnet-Xcolor-c760bba1-e900-47f5-935f-67ac3cff8a87.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\Carolina\\source\\repos\\web-service\\Xcolor\\Xcolor\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

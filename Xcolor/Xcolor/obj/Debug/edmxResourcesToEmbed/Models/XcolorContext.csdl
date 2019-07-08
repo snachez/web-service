@@ -1,0 +1,524 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="xcolorModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Canton">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idProvincia" Type="Int32" Nullable="false" />
+    <Property Name="canton1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Provincia" Relationship="Self.FK_Canton_Provincia" FromRole="Canton" ToRole="Provincia" />
+    <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_Canton" FromRole="Canton" ToRole="DireccionCliente" />
+    <NavigationProperty Name="Distrito" Relationship="Self.FK_Distrito_Canton" FromRole="Canton" ToRole="Distrito" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idRole" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="cedula" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_Cliente" FromRole="Cliente" ToRole="DireccionCliente" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_Cliente" FromRole="Cliente" ToRole="Pedido" />
+    <NavigationProperty Name="TelefonoCliente" Relationship="Self.FK_TelefonoCliente_Cliente" FromRole="Cliente" ToRole="TelefonoCliente" />
+    <NavigationProperty Name="Visita" Relationship="Self.FK_Visita_Cliente" FromRole="Cliente" ToRole="Visita" />
+  </EntityType>
+  <EntityType Name="DireccionCliente">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="direccion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idProvincia" Type="Int32" Nullable="false" />
+    <Property Name="idCanton" Type="Int32" Nullable="false" />
+    <Property Name="idDistrito" Type="Int32" Nullable="false" />
+    <Property Name="idTipoDireccion" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Canton" Relationship="Self.FK_DireccionCliente_Canton" FromRole="DireccionCliente" ToRole="Canton" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_DireccionCliente_Cliente" FromRole="DireccionCliente" ToRole="Cliente" />
+    <NavigationProperty Name="Distrito" Relationship="Self.FK_DireccionCliente_Distrito" FromRole="DireccionCliente" ToRole="Distrito" />
+    <NavigationProperty Name="Provincia" Relationship="Self.FK_DireccionCliente_Provincia" FromRole="DireccionCliente" ToRole="Provincia" />
+    <NavigationProperty Name="TipoDireccion" Relationship="Self.FK_DireccionCliente_TipoDireccion" FromRole="DireccionCliente" ToRole="TipoDireccion" />
+  </EntityType>
+  <EntityType Name="Distrito">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCanton" Type="Int32" Nullable="false" />
+    <Property Name="Distrito1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Canton" Relationship="Self.FK_Distrito_Canton" FromRole="Distrito" ToRole="Canton" />
+    <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_Distrito" FromRole="Distrito" ToRole="DireccionCliente" />
+  </EntityType>
+  <EntityType Name="Marca">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="marca1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_Producto_Marca" FromRole="Marca" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Pedido">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUsuario" Type="Int32" Nullable="false" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="idEstado" Type="Int32" Nullable="false" />
+    <Property Name="idPedido" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Pedido_Cliente" FromRole="Pedido" ToRole="Cliente" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Pedido_Usuario" FromRole="Pedido" ToRole="Usuario" />
+    <NavigationProperty Name="ProductosxPedido" Relationship="Self.FK_ProductosxPedido_Pedido" FromRole="Pedido" ToRole="ProductosxPedido" />
+  </EntityType>
+  <EntityType Name="Perfil">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PermisosxPerfil" Relationship="Self.FK_PermisosxPerfil_Perfil" FromRole="Perfil" ToRole="PermisosxPerfil" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Usuario_Perfil" FromRole="Perfil" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Permisos">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="permiso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="PermisosxPerfil" Relationship="Self.FK_PermisosxPerfil_Permisos" FromRole="Permisos" ToRole="PermisosxPerfil" />
+  </EntityType>
+  <EntityType Name="PermisosxPerfil">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idPermiso" Type="Int32" Nullable="false" />
+    <Property Name="idPerfil" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Perfil" Relationship="Self.FK_PermisosxPerfil_Perfil" FromRole="PermisosxPerfil" ToRole="Perfil" />
+    <NavigationProperty Name="Permisos" Relationship="Self.FK_PermisosxPerfil_Permisos" FromRole="PermisosxPerfil" ToRole="Permisos" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="producto1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="descripcion" Type="String" MaxLength="300" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idMarca" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Marca" Relationship="Self.FK_Producto_Marca" FromRole="Producto" ToRole="Marca" />
+    <NavigationProperty Name="ProductosxPedido" Relationship="Self.FK_ProductosxPedido_Producto" FromRole="Producto" ToRole="ProductosxPedido" />
+  </EntityType>
+  <EntityType Name="ProductosxPedido">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idPedido" Type="Int32" Nullable="false" />
+    <Property Name="idProducto" Type="Int32" Nullable="false" />
+    <Property Name="cantidad" Type="Double" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FK_ProductosxPedido_Pedido" FromRole="ProductosxPedido" ToRole="Pedido" />
+    <NavigationProperty Name="Producto" Relationship="Self.FK_ProductosxPedido_Producto" FromRole="ProductosxPedido" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Provincia">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="provincia1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Canton" Relationship="Self.FK_Canton_Provincia" FromRole="Provincia" ToRole="Canton" />
+    <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_Provincia" FromRole="Provincia" ToRole="DireccionCliente" />
+  </EntityType>
+  <EntityType Name="TelefonoCliente">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="idTipoTelefono" Type="Int32" Nullable="false" />
+    <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_TelefonoCliente_Cliente" FromRole="TelefonoCliente" ToRole="Cliente" />
+    <NavigationProperty Name="TipoTelefono" Relationship="Self.FK_TelefonoCliente_TipoTelefono" FromRole="TelefonoCliente" ToRole="TipoTelefono" />
+  </EntityType>
+  <EntityType Name="TipoDireccion">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoDireccion1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="DireccionCliente" Relationship="Self.FK_DireccionCliente_TipoDireccion" FromRole="TipoDireccion" ToRole="DireccionCliente" />
+  </EntityType>
+  <EntityType Name="TipoTelefono">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tipoTelefono1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="TelefonoCliente" Relationship="Self.FK_TelefonoCliente_TipoTelefono" FromRole="TipoTelefono" ToRole="TelefonoCliente" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idPerfil" Type="Int32" Nullable="false" />
+    <Property Name="usuario1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="contraseña" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="correoElectronico" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Pedido" Relationship="Self.FK_Pedido_Usuario" FromRole="Usuario" ToRole="Pedido" />
+    <NavigationProperty Name="Perfil" Relationship="Self.FK_Usuario_Perfil" FromRole="Usuario" ToRole="Perfil" />
+    <NavigationProperty Name="Visita" Relationship="Self.FK_Visita_Usuario" FromRole="Usuario" ToRole="Visita" />
+  </EntityType>
+  <EntityType Name="Visita">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idUsuario" Type="Int32" Nullable="false" />
+    <Property Name="fechaHoraInicio" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="fechaHoraFinal" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ubicacionGPS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="idCliente" Type="Int32" Nullable="false" />
+    <Property Name="estado" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="Self.FK_Visita_Cliente" FromRole="Visita" ToRole="Cliente" />
+    <NavigationProperty Name="Usuario" Relationship="Self.FK_Visita_Usuario" FromRole="Visita" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="FK_Canton_Provincia">
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
+    <End Role="Canton" Type="Self.Canton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Canton">
+        <PropertyRef Name="idProvincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DireccionCliente_Canton">
+    <End Role="Canton" Type="Self.Canton" Multiplicity="1" />
+    <End Role="DireccionCliente" Type="Self.DireccionCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Canton">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DireccionCliente">
+        <PropertyRef Name="idCanton" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Distrito_Canton">
+    <End Role="Canton" Type="Self.Canton" Multiplicity="1" />
+    <End Role="Distrito" Type="Self.Distrito" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Canton">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Distrito">
+        <PropertyRef Name="idCanton" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DireccionCliente_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="DireccionCliente" Type="Self.DireccionCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DireccionCliente">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pedido_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TelefonoCliente_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="TelefonoCliente" Type="Self.TelefonoCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TelefonoCliente">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visita_Cliente">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+    <End Role="Visita" Type="Self.Visita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Visita">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DireccionCliente_Distrito">
+    <End Role="Distrito" Type="Self.Distrito" Multiplicity="1" />
+    <End Role="DireccionCliente" Type="Self.DireccionCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Distrito">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DireccionCliente">
+        <PropertyRef Name="idDistrito" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DireccionCliente_Provincia">
+    <End Role="Provincia" Type="Self.Provincia" Multiplicity="1" />
+    <End Role="DireccionCliente" Type="Self.DireccionCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincia">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DireccionCliente">
+        <PropertyRef Name="idProvincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DireccionCliente_TipoDireccion">
+    <End Role="TipoDireccion" Type="Self.TipoDireccion" Multiplicity="1" />
+    <End Role="DireccionCliente" Type="Self.DireccionCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoDireccion">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DireccionCliente">
+        <PropertyRef Name="idTipoDireccion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Producto_Marca">
+    <End Role="Marca" Type="Self.Marca" Multiplicity="1" />
+    <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Marca">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="idMarca" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Pedido_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Pedido">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductosxPedido_Pedido">
+    <End Role="Pedido" Type="Self.Pedido" Multiplicity="1" />
+    <End Role="ProductosxPedido" Type="Self.ProductosxPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pedido">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductosxPedido">
+        <PropertyRef Name="idPedido" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PermisosxPerfil_Perfil">
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="1" />
+    <End Role="PermisosxPerfil" Type="Self.PermisosxPerfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermisosxPerfil">
+        <PropertyRef Name="idPerfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Perfil">
+    <End Role="Perfil" Type="Self.Perfil" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Perfil">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="idPerfil" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PermisosxPerfil_Permisos">
+    <End Role="Permisos" Type="Self.Permisos" Multiplicity="1" />
+    <End Role="PermisosxPerfil" Type="Self.PermisosxPerfil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Permisos">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PermisosxPerfil">
+        <PropertyRef Name="idPermiso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ProductosxPedido_Producto">
+    <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+    <End Role="ProductosxPedido" Type="Self.ProductosxPedido" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ProductosxPedido">
+        <PropertyRef Name="idProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TelefonoCliente_TipoTelefono">
+    <End Role="TipoTelefono" Type="Self.TipoTelefono" Multiplicity="1" />
+    <End Role="TelefonoCliente" Type="Self.TelefonoCliente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoTelefono">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TelefonoCliente">
+        <PropertyRef Name="idTipoTelefono" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Visita_Usuario">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="1" />
+    <End Role="Visita" Type="Self.Visita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Visita">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="xcolorEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Canton" EntityType="Self.Canton" />
+    <EntitySet Name="Cliente" EntityType="Self.Cliente" />
+    <EntitySet Name="DireccionCliente" EntityType="Self.DireccionCliente" />
+    <EntitySet Name="Distrito" EntityType="Self.Distrito" />
+    <EntitySet Name="Marca" EntityType="Self.Marca" />
+    <EntitySet Name="Pedido" EntityType="Self.Pedido" />
+    <EntitySet Name="Perfil" EntityType="Self.Perfil" />
+    <EntitySet Name="Permisos" EntityType="Self.Permisos" />
+    <EntitySet Name="PermisosxPerfil" EntityType="Self.PermisosxPerfil" />
+    <EntitySet Name="Producto" EntityType="Self.Producto" />
+    <EntitySet Name="ProductosxPedido" EntityType="Self.ProductosxPedido" />
+    <EntitySet Name="Provincia" EntityType="Self.Provincia" />
+    <EntitySet Name="TelefonoCliente" EntityType="Self.TelefonoCliente" />
+    <EntitySet Name="TipoDireccion" EntityType="Self.TipoDireccion" />
+    <EntitySet Name="TipoTelefono" EntityType="Self.TipoTelefono" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+    <EntitySet Name="Visita" EntityType="Self.Visita" />
+    <AssociationSet Name="FK_Canton_Provincia" Association="Self.FK_Canton_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="Canton" EntitySet="Canton" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DireccionCliente_Canton" Association="Self.FK_DireccionCliente_Canton">
+      <End Role="Canton" EntitySet="Canton" />
+      <End Role="DireccionCliente" EntitySet="DireccionCliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Distrito_Canton" Association="Self.FK_Distrito_Canton">
+      <End Role="Canton" EntitySet="Canton" />
+      <End Role="Distrito" EntitySet="Distrito" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DireccionCliente_Cliente" Association="Self.FK_DireccionCliente_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="DireccionCliente" EntitySet="DireccionCliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pedido_Cliente" Association="Self.FK_Pedido_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TelefonoCliente_Cliente" Association="Self.FK_TelefonoCliente_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="TelefonoCliente" EntitySet="TelefonoCliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visita_Cliente" Association="Self.FK_Visita_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Visita" EntitySet="Visita" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DireccionCliente_Distrito" Association="Self.FK_DireccionCliente_Distrito">
+      <End Role="Distrito" EntitySet="Distrito" />
+      <End Role="DireccionCliente" EntitySet="DireccionCliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DireccionCliente_Provincia" Association="Self.FK_DireccionCliente_Provincia">
+      <End Role="Provincia" EntitySet="Provincia" />
+      <End Role="DireccionCliente" EntitySet="DireccionCliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DireccionCliente_TipoDireccion" Association="Self.FK_DireccionCliente_TipoDireccion">
+      <End Role="TipoDireccion" EntitySet="TipoDireccion" />
+      <End Role="DireccionCliente" EntitySet="DireccionCliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Producto_Marca" Association="Self.FK_Producto_Marca">
+      <End Role="Marca" EntitySet="Marca" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Pedido_Usuario" Association="Self.FK_Pedido_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Pedido" EntitySet="Pedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductosxPedido_Pedido" Association="Self.FK_ProductosxPedido_Pedido">
+      <End Role="Pedido" EntitySet="Pedido" />
+      <End Role="ProductosxPedido" EntitySet="ProductosxPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PermisosxPerfil_Perfil" Association="Self.FK_PermisosxPerfil_Perfil">
+      <End Role="Perfil" EntitySet="Perfil" />
+      <End Role="PermisosxPerfil" EntitySet="PermisosxPerfil" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Perfil" Association="Self.FK_Usuario_Perfil">
+      <End Role="Perfil" EntitySet="Perfil" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PermisosxPerfil_Permisos" Association="Self.FK_PermisosxPerfil_Permisos">
+      <End Role="Permisos" EntitySet="Permisos" />
+      <End Role="PermisosxPerfil" EntitySet="PermisosxPerfil" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ProductosxPedido_Producto" Association="Self.FK_ProductosxPedido_Producto">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="ProductosxPedido" EntitySet="ProductosxPedido" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TelefonoCliente_TipoTelefono" Association="Self.FK_TelefonoCliente_TipoTelefono">
+      <End Role="TipoTelefono" EntitySet="TipoTelefono" />
+      <End Role="TelefonoCliente" EntitySet="TelefonoCliente" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Visita_Usuario" Association="Self.FK_Visita_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Visita" EntitySet="Visita" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
